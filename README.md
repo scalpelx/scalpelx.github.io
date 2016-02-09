@@ -1,2 +1,2 @@
-# scalpel.xyz
+# scalpel.github.io
 Personal website
