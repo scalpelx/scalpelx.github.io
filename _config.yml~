@@ -1,7 +1,7 @@
 # Site settings
 title: Scalpel's Blog
 SEOTitle: Scalpel's Blog
-header-img: img/home-bg.jpg
+header-img: img/home-bg-o.jpg
 email: xieyongpeng@outlook.com
 description: "Program"
 keyword: ""
@@ -12,8 +12,8 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # SNS settings
 RSS: false
-weibo_username: 谢永鹏Scalpel    
-zhihu_username:  谢永鹏
+weibo_username: 208523432   
+zhihu_username:  xieyongpeng
 github_username:  scalpelx  
 twitter_username:  xieyp
 facebook_username:  xieyongpeng
@@ -62,7 +62,7 @@ ga_domain:
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Programer and ACMer"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
