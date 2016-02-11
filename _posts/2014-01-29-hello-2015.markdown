@@ -2,10 +2,10 @@
 layout:     post
 title:      "123"
 subtitle:   "123"
-date:       2016-02-11 22:00:00
+date:       2016-02-10 22:00:00
 author:     "Scalpel"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/home-bg-o.jpg"
 tags:
-    - 生活
+- 生活
 ---
-
+123
