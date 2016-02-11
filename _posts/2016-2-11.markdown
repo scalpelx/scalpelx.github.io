@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      "First post"
-subtitle:   "Hello everyone"
+subtitle:   "\"Hello everyone\""
 date:       2016-02-11 22:08:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
-    - diary
+    - 生活
 ---
