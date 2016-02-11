@@ -52,10 +52,10 @@ duoshuo_share:                     # set to false if you want to use Comment wit
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 
+ba_track_id: 8c587d5662a02c6d075f57e33b5a3ee1
 # Google Analytics
-ga_track_id: ''            # Format: UA-xxxxxx-xx
-ga_domain: 
+ga_track_id: 'UA-73563741-1'            
+ga_domain: scalpel.xyz
 
 
 
@@ -75,7 +75,15 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
+        title: "Mycodebattle's Blog",
+        href: "http://mycodebattle.com"
+    },
+    {
+        title: "Winterfell30's Blog",
+        href: "http://winterfell30.com"
+    },
+    {
         title: "Hux Blog",
         href: "http://huangxuan.me"
-    },
+    }
 ]
