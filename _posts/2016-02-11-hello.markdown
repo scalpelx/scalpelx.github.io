@@ -9,10 +9,11 @@ tags:
 - 生活
 ---
 ```cpp
-#include <iostream>  
-int main()  
-{  
-    std::cout << "Hello!" << endl;  
-    return 0;  
-}  
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Hello!" << endl;
+    return 0;
+}
 ```
