@@ -6,8 +6,9 @@ date:       2016-02-11 01:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
--- 生活
+- 生活
 ---
+
 ```cpp
 int main() 
 ```
