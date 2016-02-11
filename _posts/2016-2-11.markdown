@@ -1,0 +1,19 @@
+---
+layout:     post
+title:      "First post"
+subtitle:   "Hello everyone"
+date:       2016-02-11 22:08:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+    - diary
+---
+```cpp
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+    cout << "Hello, everyone!" << endl;  
+    return 0;  
+}  
+```
