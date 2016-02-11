@@ -52,10 +52,10 @@ duoshuo_share:                     # set to false if you want to use Comment wit
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 8c587d5662a02c6d075f57e33b5a3ee1
+#ba_track_id: 8c587d5662a02c6d075f57e33b5a3ee1
 # Google Analytics
-ga_track_id: 'UA-73563741-1'            
-ga_domain: scalpel.xyz
+#ga_track_id: 'UA-73563741-1'            
+#ga_domain: scalpel.xyz
 
 
 
