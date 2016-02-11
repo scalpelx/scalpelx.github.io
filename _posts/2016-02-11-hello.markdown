@@ -8,4 +8,10 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 生活
 ---
-123
+```cpp
+#include <iostream>  
+int main()  
+{  
+    std::cout << "Hello!" << endl;  
+    return 0;  
+}  
