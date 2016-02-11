@@ -13,7 +13,7 @@ tags:
 另外感谢Hux提供的Theme。  
 第一篇博文该写些什么呢，想不出有什么好写的，还是写几行有意思的代码吧，顺便测试一下语法高亮。  
 从标准输入读任意个数，然后输出它们的和，可以这么写：  
-```cpp
+```
 #include <iostream>
 #include <iterator>
 #include <numeric>
