@@ -11,7 +11,7 @@ tags:
 一
 
 {% highlight cpp %}
-'#include <iostream>'
+#include <iostream>
 #include <iterator>
 #include <numeric>
 using namespace std;
