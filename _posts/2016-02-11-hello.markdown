@@ -12,11 +12,8 @@ tags:
 
 {% highlight cpp %}
 #include <iostream>
-  
 #include <iterator>
-  
 #include <numeric>
-  
 using namespace std;
 int main()
 {
