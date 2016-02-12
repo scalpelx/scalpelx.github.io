@@ -10,7 +10,7 @@ tags:
 ---
 一
 ``
-```cpp
+{% highlight cpp %}
 #include <iostream>
 #include <iterator>
 #include <numeric>
@@ -21,5 +21,5 @@ int main()
     cout << accumulate(i, e, 0);
     return 0;
 }
-```
+{% endhighlight %}
 ``
