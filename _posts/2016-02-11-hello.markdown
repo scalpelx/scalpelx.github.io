@@ -9,11 +9,11 @@ tags:
 - 生活
 ---
 一
-``
+
 {% highlight cpp %}
-/#include <iostream>
-'#include <iterator>'
-'#include <numeric>'
+'#include <iostream>'
+#include <iterator>
+#include <numeric>
 using namespace std;
 int main()
 {
@@ -22,4 +22,4 @@ int main()
     return 0;
 }
 {% endhighlight %}
-``
+
