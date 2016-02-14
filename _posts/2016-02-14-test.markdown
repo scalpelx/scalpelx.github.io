@@ -1,0 +1,23 @@
+---
+layout:     post
+title:      "test"
+subtitle:   ""
+description: ""
+date:       2016-02-12 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 生活
+---
+如果我们能够
+~~~cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a;
+    cin >> a;
+    cout << a << endl;
+    return 0;
+}
+~~~
