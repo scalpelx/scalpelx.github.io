@@ -9,7 +9,6 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 生活
 ---
-如果我们能够
 ~~~cpp
 #include <iostream>
 using namespace std;
