@@ -3,13 +3,12 @@ layout:     post
 title:      "test"
 subtitle:   ""
 description: ""
-date:       2016-02-14 13:00:00
+date:       2016-02-14 13:40:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
 - 生活
 ---
-abc
 ```cpp
 #include <iostream>
 using namespace std;
