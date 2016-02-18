@@ -111,8 +111,8 @@ Bracket Highlighter Settings
 }
 {% endhighlight %}  
 把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)
-{% highlight json %}
-<dict>
+{% highlight css %}
+        <dict>
             <key>name</key>
             <string>Bracket Default</string>
             <key>scope</key>
