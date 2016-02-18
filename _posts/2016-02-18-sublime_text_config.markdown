@@ -125,7 +125,7 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
 Linux(同上):
 {% highlight json %}
 {% endhighlight %}
-*Python Build System*
+*Python Build System*  
 Windows、Linux(解决无法输入问题):  
 {% highlight json %}
 {
@@ -135,7 +135,7 @@ Windows、Linux(解决无法输入问题):
     "target": "console_exec"
 }
 {% endhighlight %}
-*Python.sublime-setting（放在User目录下） 
+#######Python.sublime-setting（放在User目录下） 
 {% highlight json %}
 {
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
