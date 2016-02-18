@@ -9,9 +9,9 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 编程开发
 ---
-分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Setting  
+分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings  
 
-Preferences User Setting
+Preferences User Settings
 ---
 {% highlight json %}
 {
@@ -41,7 +41,7 @@ Console Exec(Python终端运行)
 IMESupport(输入法随行显示)  
 SublimeAStyleFormatter(代码格式化)  
 
-Anaconda Setting
+Anaconda Settings
 ---
 {% highlight json %}
 {
@@ -51,7 +51,7 @@ Anaconda Setting
     "suppress_explicit_completions": true,
 }
 {% endhighlight %}  
-Bracket Highlighter Setting
+Bracket Highlighter Settings
 ---
 {% highlight json %}
 {
@@ -143,7 +143,7 @@ Windows、Linux(解决无法输入问题):
     "target": "console_exec"
 }
 {% endhighlight %}
-Python.sublime-setting（放在User目录下）
+Python.sublime-settings（放在User目录下）
 ---
 {% highlight json %}
 {
