@@ -123,7 +123,7 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
     "variants": 
     [
         {   
-        "name": "Run",
+            "name": "Run",
             "shell_cmd": "start cmd /c \"${file_path}/${file_base_name} & pause\""
         }
     ]
