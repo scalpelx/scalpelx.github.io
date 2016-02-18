@@ -8,7 +8,7 @@ author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
 - 编程开发
-===
+---
 分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Setting  
 Preferences User Setting
 ---
