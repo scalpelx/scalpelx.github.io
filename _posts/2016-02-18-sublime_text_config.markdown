@@ -30,7 +30,7 @@ tags:
 }
 {% endhighlight %}  
 *Package*
-`
+```
 Anaconda(非常强大的Python插件，支持自动完成、代码检查、查找变量或函数定义及使用等众多功能)  
 Bracket Highlighter(括号匹配高亮)  
 ConvertToUTF8(GBK、UTF-8转换)  
@@ -38,7 +38,7 @@ ChineseLocalization(中文汉化)
 Console Exec(Python终端运行)  
 IMESupport(输入法随行显示)  
 SublimeAStyleFormatter(代码格式化)  
-`
+```
 *Anaconda Setting*
 {% highlight json %}
 {
@@ -46,5 +46,63 @@ SublimeAStyleFormatter(代码格式化)
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}],
     "suppress_word_completions": true,
     "suppress_explicit_completions": true,
+}
+{% endhighlight %}  
+*Bracket Highlighter Setting*
+{% highlight json %}
+{
+    "bracket_styles": {
+        "default": {
+            "icon": "dot",
+            "color": "entity.name.class",
+            "color": "brackethighlighter.default",
+            "style": "highlight"
+        },
+        "unmatched": {
+            "icon": "question",
+            "color": "brackethighlighter.unmatched",
+            "style": "highlight"
+        },
+        "curly": {
+            "icon": "curly_bracket",
+            "color": "brackethighlighter.curly",
+            "style": "underline"
+        },
+        "round": {
+            "icon": "round_bracket",
+            "color": "brackethighlighter.round",
+            "style": "underline"
+        },
+        "square": {
+            "icon": "square_bracket",
+            "color": "brackethighlighter.square",
+            "style": "underline"
+        },
+        "angle": {
+            "icon": "angle_bracket",
+            "color": "brackethighlighter.angle",
+            "style": "underline"
+        },
+        "tag": {
+            "icon": "tag",
+            "color": "brackethighlighter.tag",
+            "style": "highlight"
+        },
+        "single_quote": {
+            "icon": "single_quote",
+            "color": "brackethighlighter.quote",
+            "style": "underline"
+        },
+        "double_quote": {
+            "icon": "double_quote",
+            "color": "brackethighlighter.quote",
+            "style": "underline"
+        },
+        "regex": {
+            "icon": "regex",
+            "color": "brackethighlighter.quote",
+            "style": "outline"
+        }
+    },
 }
 {% endhighlight %}  
