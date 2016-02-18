@@ -29,7 +29,7 @@ tags:
     "word_wrap": "auto"
 }
 {% endhighlight %}  
-*Package*
+*Package*  
 ```
 Anaconda(非常强大的Python插件，支持自动完成、代码检查、查找变量或函数定义及使用等众多功能)  
 Bracket Highlighter(括号匹配高亮)  
@@ -39,6 +39,7 @@ Console Exec(Python终端运行)
 IMESupport(输入法随行显示)  
 SublimeAStyleFormatter(代码格式化)  
 ```
+
 *Anaconda Setting*
 {% highlight json %}
 {
@@ -106,3 +107,22 @@ SublimeAStyleFormatter(代码格式化)
     },
 }
 {% endhighlight %}  
+*C++ Build System*
+Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
+{% highlight json %}
+{
+    "encoding": "utf-8",
+    "working_dir": "$file_path",
+    "shell_cmd": "g++ -std=c++14 -Wall -Wextra \"$file_name\" -o \"$file_base_name\"",
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "selector": "source.c++",
+    "variants": 
+    [
+        {   
+        "name": "Run",
+            "shell_cmd": "start cmd /c \"${file_path}/${file_base_name} & pause\""
+        }
+    ]
+}
+Linux(同上):  
+{% endhighlight %}
