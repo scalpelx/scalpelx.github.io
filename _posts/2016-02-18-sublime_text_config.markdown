@@ -11,7 +11,7 @@ tags:
 ---
 分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Setting  
 *Preferences User Setting*  
-{% highlight js %}
+{% highlight json %}
 {
     "always_show_minimap_viewport": true,
     "caret_style": "phase",
@@ -40,7 +40,7 @@ IMESupport(输入法随行显示)
 SublimeAStyleFormatter(代码格式化)  
 `
 *Anaconda Setting*
-{% highlight js %}
+{% highlight json %}
 {
     "python_interpreter": "Python安装路径\\python.exe",
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}],
@@ -49,7 +49,7 @@ SublimeAStyleFormatter(代码格式化)
 }
 {% endhighlight %}
 *Bracket Highlighter Setting*
-{% highlight js %}
+{% highlight json %}
 {
     "bracket_styles": {
         "default": {
@@ -108,7 +108,7 @@ SublimeAStyleFormatter(代码格式化)
 {% endhighlight %}
 *C++ Build System*
 Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
-{% highlight js %}
+{% highlight json %}
 {
     "encoding": "utf-8",
     "working_dir": "$file_path",
@@ -128,7 +128,7 @@ Linux(同上):
 {% endhighlight %}
 *Python Build System*
 Windows、Linux(解决无法输入问题):  
-{% highlight js %}
+{% highlight json %}
 {
     "cmd": ["python", "-u", "$file"],
     "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
@@ -137,7 +137,7 @@ Windows、Linux(解决无法输入问题):
 }
 {% endhighlight %}
 *Python.sublime-setting（放在User目录下）*  
-{% highlight js %}
+{% highlight json %}
 {
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
 }
