@@ -10,7 +10,7 @@ tags:
 - 编程开发
 ---
 分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Setting  
-*Preferences User Setting*  
+*Preferences User Setting*
 {% highlight json %}
 {
     "always_show_minimap_viewport": true,
@@ -27,5 +27,24 @@ tags:
     "translate_tabs_to_spaces": true,
     "update_check": false,
     "word_wrap": "auto"
+}
+{% endhighlight %}  
+*Package*
+`
+Anaconda(非常强大的Python插件，支持自动完成、代码检查、查找变量或函数定义及使用等众多功能)  
+Bracket Highlighter(括号匹配高亮)  
+ConvertToUTF8(GBK、UTF-8转换)  
+ChineseLocalization(中文汉化)  
+Console Exec(Python终端运行)  
+IMESupport(输入法随行显示)  
+SublimeAStyleFormatter(代码格式化)  
+`
+*Anaconda Setting*
+{% highlight json %}
+{
+    "python_interpreter": "Python安装路径\\python.exe",
+    "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}],
+    "suppress_word_completions": true,
+    "suppress_explicit_completions": true,
 }
 {% endhighlight %}  
