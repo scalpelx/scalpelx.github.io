@@ -40,6 +40,7 @@ ChineseLocalization(中文汉化)
 Console Exec(Python终端运行)  
 IMESupport(输入法随行显示)  
 SublimeAStyleFormatter(代码格式化)  
+
 Anaconda Setting
 ---
 {% highlight json %}
