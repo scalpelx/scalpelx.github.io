@@ -110,6 +110,110 @@ Bracket Highlighter Settings
     },
 }
 {% endhighlight %}  
+把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)
+{% highlight json %}
+<dict>
+            <key>name</key>
+            <string>Bracket Default</string>
+            <key>scope</key>
+            <string>brackethighlighter.default</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+                <key>background</key>
+                <string>#A6E22E</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Unmatched</string>
+            <key>scope</key>
+            <string>brackethighlighter.unmatched</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+                <key>background</key>
+                <string>#FF0000</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Curly</string>
+            <key>scope</key>
+            <string>brackethighlighter.curly</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FF00FF</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Round</string>
+            <key>scope</key>
+            <string>brackethighlighter.round</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#E7FF04</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Square</string>
+            <key>scope</key>
+            <string>brackethighlighter.square</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FE4800</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Angle</string>
+            <key>scope</key>
+            <string>brackethighlighter.angle</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#02F78E</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Tag</string>
+            <key>scope</key>
+            <string>brackethighlighter.tag</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+                <key>background</key>
+                <string>#0080FF</string>
+            </dict>
+        </dict>     
+
+        <dict>
+            <key>name</key>
+            <string>Bracket Quote</string>
+            <key>scope</key>
+            <string>brackethighlighter.quote</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#56FF00</string>
+            </dict>
+        </dict>
+{% endhighlight %}  
 C++ Build System
 ---  
 Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):
@@ -129,7 +233,8 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
     ]
 }
 {% endhighlight %}
-Linux(同上):
+Linux(同上):  
+稍后补上  
 {% highlight json %}
 {% endhighlight %}
 Python Build System
