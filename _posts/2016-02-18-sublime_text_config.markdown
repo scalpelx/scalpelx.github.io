@@ -30,7 +30,6 @@ tags:
 }
 {% endhighlight %}  
 *Package*  
-```
 Anaconda(非常强大的Python插件，支持自动完成、代码检查、查找变量或函数定义及使用等众多功能)  
 Bracket Highlighter(括号匹配高亮)  
 ConvertToUTF8(GBK、UTF-8转换)  
@@ -38,8 +37,6 @@ ChineseLocalization(中文汉化)
 Console Exec(Python终端运行)  
 IMESupport(输入法随行显示)  
 SublimeAStyleFormatter(代码格式化)  
-```
-
 *Anaconda Setting*
 {% highlight json %}
 {
@@ -107,8 +104,8 @@ SublimeAStyleFormatter(代码格式化)
     },
 }
 {% endhighlight %}  
-*C++ Build System*
-Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
+*C++ Build System*  
+Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):
 {% highlight json %}
 {
     "encoding": "utf-8",
@@ -124,5 +121,23 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
         }
     ]
 }
-Linux(同上):  
+{% endhighlight %}
+Linux(同上):
+{% highlight json %}
+{% endhighlight %}
+*Python Build System*
+Windows、Linux(解决无法输入问题):  
+{% highlight json %}
+{
+    "cmd": ["python", "-u", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python",
+    "target": "console_exec"
+}
+{% endhighlight %}
+*Python.sublime-setting（放在User目录下）*  
+{% highlight json %}
+{
+    "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
+}
 {% endhighlight %}
