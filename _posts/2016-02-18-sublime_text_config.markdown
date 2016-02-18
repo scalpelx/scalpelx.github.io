@@ -135,7 +135,7 @@ Windows、Linux(解决无法输入问题):
     "target": "console_exec"
 }
 {% endhighlight %}
-######Python.sublime-setting（放在User目录下） 
+######Python.sublime-setting（放在User目录下）######
 {% highlight json %}
 {
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
