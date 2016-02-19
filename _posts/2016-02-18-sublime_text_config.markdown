@@ -223,7 +223,7 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
     "working_dir": "$file_path",
     "shell_cmd": "g++ -std=c++14 -Wall -Wextra \"$file_name\" -o \"$file_base_name\"",
     "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
-    "selector": "source.c++",
+    "selector": "source.c++, source.cpp, source.cxx",
     "variants": 
     [
         {   
@@ -233,9 +233,22 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
     ]
 }
 {% endhighlight %}
-Linux(同上):  
-稍后补上  
+Ubuntu:  
 {% highlight json %}
+{
+  "cmd": ["g++", "-std=c++14", "-Wall", "-Wextra", "$file", "-o", "${file_path}/${file_base_name}"],
+  "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+  "working_dir": "${file_path}",
+  "selector": "source.c++, source.cxx, source.cpp",
+  "variants":
+  [
+      {
+          "name": "Run",
+          "shell": true,
+          "cmd": ["gnome-terminal -e 'bash -c \"${file_path}/${file_base_name}; echo; echo Press ENTER to continue; read line; exit; exec bash\"'"]
+      }
+  ]
+}
 {% endhighlight %}
 Python Build System
 --- 
@@ -247,8 +260,8 @@ Windows、Linux(解决无法输入问题):
     "selector": "source.python",
     "target": "console_exec"
 }
-{% endhighlight %}
-Python.sublime-settings（放在User目录下）
+{% endhighlight %}  
+Python.sublime-settings（放在User目录下）  
 ---
 {% highlight json %}
 {
