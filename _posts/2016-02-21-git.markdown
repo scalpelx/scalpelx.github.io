@@ -19,8 +19,7 @@ git remote -v
 来验证，得到的结果类似于  
 
 ~~~
-origin  https://github.com/username/repository (fetch)
-origin  https://github.com/username/repository (push)
+origin  https://github.com/username/repository
 ~~~
 这样的形式，果然已经被改为https了。可以通过
 
