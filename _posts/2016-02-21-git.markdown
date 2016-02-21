@@ -26,4 +26,4 @@ origin  https://github.com/username/repository
 ~~~
 git remote set-url origin git@github.com:username/repository.git
 ~~~
-重新改为ssh。
+<s>重新改为ssh。<s>
