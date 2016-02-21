@@ -25,5 +25,6 @@ int main()
     cout << accumulate(i, e, 0);
     return 0;
 }
-{% endhighlight %}
+{% endhighlight %}  
+ \(ax^2 + bx + c = 0\) 
 
