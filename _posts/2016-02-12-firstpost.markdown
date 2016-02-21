@@ -26,5 +26,6 @@ int main()
     return 0;
 }
 {% endhighlight %}  
- \(ax^2 + bx + c = 0\) 
+
+\(ax^2 + bx + c = 0\) 
 
