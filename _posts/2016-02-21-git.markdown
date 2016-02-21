@@ -7,7 +7,7 @@ date:       2016-02-21 14:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
-- 生活
+- 软件使用
 ---
 2016-02-21
 ===
