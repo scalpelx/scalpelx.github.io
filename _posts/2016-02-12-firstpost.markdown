@@ -27,5 +27,5 @@ int main()
 }
 {% endhighlight %}  
 
-$ax^2 + bx + c = 0$
+$$ax^2 + bx + c = 0$$
 
