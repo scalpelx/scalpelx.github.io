@@ -10,7 +10,7 @@ tags:
 - 编程开发
 - 软件使用
 ---
-1分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings  
+分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings  
 
 Preferences User Settings
 ---
@@ -54,7 +54,7 @@ Anaconda Settings
 }
 ```
 Bracket Highlighter Settings
----  
+---
 ```json
 {
     "bracket_styles": {
