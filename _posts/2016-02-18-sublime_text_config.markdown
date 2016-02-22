@@ -114,9 +114,9 @@ Bracket Highlighter Settings
 }
 ```
 
-把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)  
+把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)
 
-{% highlight xml %}
+```xml
         <dict>
             <key>name</key>
             <string>Bracket Default</string>
@@ -211,8 +211,7 @@ Bracket Highlighter Settings
                 <string>#56FF00</string>
             </dict>
         </dict>
-{% endhighlight %}
-
+```
 C++ Build System  
 ---  
 Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
