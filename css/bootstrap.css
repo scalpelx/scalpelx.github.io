@@ -1538,9 +1538,9 @@ kbd kbd {
 }
 pre {
   display: block;
-  padding: 9.5px;
+  padding: 0px;
   margin: 0 0 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857143;
   color: #333;
   word-break: break-all;
