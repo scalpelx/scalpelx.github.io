@@ -10,7 +10,7 @@ tags:
 - 编程开发
 - 软件使用
 ---
-分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings  
+1分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings  
 
 Preferences User Settings
 ---
@@ -115,7 +115,7 @@ Bracket Highlighter Settings
 
 把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)  
 
-{% highlight %}
+{% highlight xml %}
         <dict>
             <key>name</key>
             <string>Bracket Default</string>
