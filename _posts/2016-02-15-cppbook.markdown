@@ -20,7 +20,7 @@ tags:
 《Effective Modern C++》  
 《More Effective C++》  
 《Ruminations on C++》  
-《The C++ Standard Library》 
+《The C++ Standard Library》  
 《Effective STL》  
 《C++ Templates》  
 
@@ -35,7 +35,7 @@ tags:
 
 Linux
 ---
-《鸟哥的Linux私房菜》
+《鸟哥的Linux私房菜》  
 《Beginning Linux Programming》  
 《Advanced Programming in the UNIX Environment》  
 《TCP/IP ILLustrated》  
