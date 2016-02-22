@@ -58,7 +58,7 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
   {
-    title: "Mycodebattle's Blog",
+    title: "MyCodeBattle's Blog",
     href: "http://mycodebattle.com"
   },
   {
