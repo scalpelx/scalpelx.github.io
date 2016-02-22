@@ -53,6 +53,7 @@ Anaconda Settings
     "suppress_explicit_completions": true,
 }
 ```
+
 Bracket Highlighter Settings
 ---
 ```json
@@ -210,7 +211,8 @@ Bracket Highlighter Settings
                 <string>#56FF00</string>
             </dict>
         </dict>
-{% endhighlight %}  
+{% endhighlight %}
+
 C++ Build System  
 ---  
 Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
@@ -249,6 +251,7 @@ Ubuntu:
   ]
 }
 ```
+
 Python Build System
 --- 
 Windows、Linux(解决无法输入问题):
