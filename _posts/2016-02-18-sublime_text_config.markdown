@@ -14,7 +14,7 @@ tags:
 
 Preferences User Settings
 ---
-{% highlight json %}
+```json
 {
     "always_show_minimap_viewport": true,
     "caret_style": "phase",
@@ -31,7 +31,8 @@ Preferences User Settings
     "update_check": false,
     "word_wrap": "auto"
 }
-{% endhighlight %}  
+```
+
 Package
 ---  
 Anaconda(非常强大的Python插件，支持自动完成、代码检查、查找变量或函数定义及使用等众多功能)  
@@ -44,17 +45,17 @@ SublimeAStyleFormatter(代码格式化)
 
 Anaconda Settings
 ---
-{% highlight json %}
+```json
 {
     "python_interpreter": "Python安装路径\\python.exe",
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}],
     "suppress_word_completions": true,
     "suppress_explicit_completions": true,
 }
-{% endhighlight %}  
+```
 Bracket Highlighter Settings
----
-{% highlight json %}
+---  
+```json
 {
     "bracket_styles": {
         "default": {
@@ -110,9 +111,11 @@ Bracket Highlighter Settings
         }
     },
 }
-{% endhighlight %}  
-把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)
-{% highlight css %}
+```
+
+把以下内容添加到Packages\Color Scheme - Default.sublime-package(可用压缩软件打开)文件里的Monokai.tmTheme(修改当前使用的主题文件即可，默认主题为Monokai)  
+
+{% highlight %}
         <dict>
             <key>name</key>
             <string>Bracket Default</string>
@@ -125,8 +128,7 @@ Bracket Highlighter Settings
                 <key>background</key>
                 <string>#A6E22E</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Unmatched</string>
@@ -139,8 +141,7 @@ Bracket Highlighter Settings
                 <key>background</key>
                 <string>#FF0000</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Curly</string>
@@ -151,8 +152,7 @@ Bracket Highlighter Settings
                 <key>foreground</key>
                 <string>#FF00FF</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Round</string>
@@ -163,8 +163,7 @@ Bracket Highlighter Settings
                 <key>foreground</key>
                 <string>#E7FF04</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Square</string>
@@ -175,8 +174,7 @@ Bracket Highlighter Settings
                 <key>foreground</key>
                 <string>#FE4800</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Angle</string>
@@ -187,8 +185,7 @@ Bracket Highlighter Settings
                 <key>foreground</key>
                 <string>#02F78E</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Tag</string>
@@ -201,8 +198,7 @@ Bracket Highlighter Settings
                 <key>background</key>
                 <string>#0080FF</string>
             </dict>
-        </dict>     
-
+        </dict>
         <dict>
             <key>name</key>
             <string>Bracket Quote</string>
@@ -215,10 +211,11 @@ Bracket Highlighter Settings
             </dict>
         </dict>
 {% endhighlight %}  
-C++ Build System
+C++ Build System  
 ---  
-Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):
-{% highlight json %}
+Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
+
+```json
 {
     "encoding": "utf-8",
     "working_dir": "$file_path",
@@ -233,9 +230,10 @@ Windows(可自由更改g++选项，可调出命令行，解决了默认不支持
         }
     ]
 }
-{% endhighlight %}
+```
 Ubuntu:  
-{% highlight json %}
+
+```json
 {
   "cmd": ["g++", "-std=c++14", "-Wall", "-Wextra", "$file", "-o", "${file_path}/${file_base_name}"],
   "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
@@ -250,22 +248,24 @@ Ubuntu:
       }
   ]
 }
-{% endhighlight %}
+```
 Python Build System
 --- 
-Windows、Linux(解决无法输入问题):  
-{% highlight json %}
+Windows、Linux(解决无法输入问题):
+
+```json
 {
     "cmd": ["python", "-u", "$file"],
     "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
     "selector": "source.python",
     "target": "console_exec"
 }
-{% endhighlight %}  
+```
+
 Python.sublime-settings（放在User目录下）  
 ---
-{% highlight json %}
+```json
 {
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
 }
-{% endhighlight %}
+```
