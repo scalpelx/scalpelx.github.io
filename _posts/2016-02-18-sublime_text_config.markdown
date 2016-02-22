@@ -53,7 +53,7 @@ Anaconda Settings
     "suppress_explicit_completions": true,
 }
 ```
-
+  
 Bracket Highlighter Settings
 ---
 ```json
