@@ -212,6 +212,7 @@ Bracket Highlighter Settings
             </dict>
         </dict>
 ```
+
 C++ Build System  
 ---  
 Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
@@ -250,6 +251,7 @@ Ubuntu:
   ]
 }
 ```
+
 Python Build System
 --- 
 Windows、Linux(解决无法输入问题):
