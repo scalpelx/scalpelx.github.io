@@ -1,2 +1,2 @@
-My website  
-Forked Hux [title](https://github.com/Huxpro/huxblog-boilerplate)
+This is my website based on Jekyll  
+This theme is forked from [Hux](https://github.com/Huxpro/huxblog-boilerplate)
