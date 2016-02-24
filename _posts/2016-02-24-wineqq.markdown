@@ -14,7 +14,7 @@ tags:
 **安装wine**  
 Ubuntu系统可通过以下命令进行安装（其他系统请访问[wine download](https://www.winehq.org/download)）  
 
-```
+```dos
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
