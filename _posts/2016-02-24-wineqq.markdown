@@ -23,7 +23,7 @@ sudo apt-get install --install-recommends winehq-devel
 配置wine  
 在终端里输入winecfg，在应用程序标签页中，将Windows版本改为"Windows XP"，增加QQProtect.exe的应用程序设置，将其单独设置为 "Windows 10"  
 安装QQ  
-推荐轻聊版，[下载地址](http://im.qq.com/lightqq)  
+推荐轻聊版[下载地址](http://im.qq.com/lightqq)  
 安装命令（终端切换目录到下载文件夹）  
 
 ```
@@ -54,6 +54,7 @@ wine ./QQ7.9Light.exe
 [Software\\Microsoft\\Windows NT\\CurrentVersion\\FontLink\\SystemLink] 1420549548 0
 "Tahoma"="uming.ttc,AR PL UMing CN"
 ```
+
 运行QQ
 ==
 终端切换目录到QQ的安装文件夹~/.wine/drive_c/Program Files (x86)/Tencent/QQLite/Bin  
