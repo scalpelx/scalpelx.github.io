@@ -1,0 +1,58 @@
+---
+layout:     post
+title:      "利用Wine运行QQ"
+subtitle:   "Hello everyone"
+description: ""
+date:       2016-02-24 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 软件使用
+---
+准备工作
+===
+安装wine  
+Ubuntu系统可通过以下命令进行安装（其他系统请访问[wine download](https://www.winehq.org/download)）  
+```
+sudo dpkg --add-architecture i386
+sudo add-apt-repository ppa:wine/wine-builds
+sudo apt-get update
+sudo apt-get install --install-recommends winehq-devel
+```
+配置wine  
+在终端里输入winecfg，在应用程序标签页中，将Windows版本改为"Windows XP"，增加QQProtect.exe的应用程序设置，将其单独设置为 "Windows 10"  
+安装QQ  
+推荐轻聊版，[下载地址](http://im.qq.com/lightqq)  
+安装命令（终端切换目录到下载文件夹）  
+`
+wine ./QQ7.9Light.exe
+`
+安装完成后关闭即可，现在还无法登陆  
+环境配置
+===
+替换dll  
+将~/.wine/drive_c/windows/system32/下的[iphlpapi.dll](http://www.startos.com/plus/dll.php?os=Windows_2008+32%E4%BD%8D&dll=iphlpapi.dll&ac=down)和[riched20.dll](http://www.startos.com/plus/dll.php?os=Windows_7+32%E4%BD%8D&dll=riched20.dll&ac=down)替换  
+修改注册表  
+将~/.wine/user.reg添加下列信息  
+```
+[Software\\Wine\\DllOverrides] 1447325077 6869640
+#time=1d11d37208b6b08
+"*iphlpapi"="native,builtin"
+"*riched20"="native,builtin"
+"*qcap"=""
+"txplatform.exe"=""
+"txupd.exe"=""
+```
+替换字体（解决部分中文出现方框）  
+修改system.reg注册表文件（可修改为自己喜欢的字体）  
+```
+[Software\\Microsoft\\Windows NT\\CurrentVersion\\FontLink\\SystemLink] 1420549548 0
+"Tahoma"="uming.ttc,AR PL UMing CN"
+```
+运行QQ
+==
+终端切换目录到QQ的安装文件夹~/.wine/drive_c/Program Files (x86)/Tencent/QQLite/Bin
+```
+wine ./QQ.exe
+```
+
