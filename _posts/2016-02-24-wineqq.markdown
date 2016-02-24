@@ -14,7 +14,7 @@ tags:
 **安装wine**  
 Ubuntu系统可通过以下命令进行安装（其他系统请访问[wine download](https://www.winehq.org/download)）  
 
-```bash
+```sh
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
@@ -26,7 +26,7 @@ sudo apt-get install --install-recommends winehq-devel
 推荐轻聊版[下载地址](http://im.qq.com/lightqq)  
 安装命令（终端切换目录到下载文件夹）  
 
-```bash
+```sh
 wine ./QQ7.9Light.exe
 ```
 安装完成后关闭即可，现在还无法登陆  
@@ -59,7 +59,7 @@ wine ./QQ7.9Light.exe
 ==
 终端切换目录到QQ的安装文件夹~/.wine/drive_c/Program Files (x86)/Tencent/QQLite/Bin  
 
-```bash
+```sh
 wine ./QQ.exe
 ```
 这样就可以成功运行了，不过还有些小问题，比如无法使用右键等等，如果你有好的解决方法，欢迎留言:)
