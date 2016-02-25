@@ -29,7 +29,7 @@ wine ./QQ7.9Light.exe
 ```
 安装完成后关闭即可，现在还无法登陆  
 **配置wine**  
-在终端里输入winecfg，在应用程序标签页中，将Windows版本改为"Windows XP"，增加QQProtect.exe的应用程序设置，将其单独设置为"Windows 10"  
+在终端里输入winecfg，在应用程序标签页中，将Windows版本改为“Windows XP”，增加QQProtect.exe的应用程序设置，将其单独设置为“Windows 10”  
 
 环境配置
 ===
