@@ -34,7 +34,7 @@ wine ./QQ7.9Light.exe
 环境配置
 ===
 **替换dll**  
-将~/.wine/drive_c/windows/system32/下的[iphlpapi.dll(版本Windows 2008 x86)](http://www.startos.com/plus/dll.php?os=Windows_2008+32%E4%BD%8D&dll=iphlpapi.dll&ac=down)和[riched20.dll(版本Windows 7 x86)](http://www.startos.com/plus/dll.php?os=Windows_7+32%E4%BD%8D&dll=riched20.dll&ac=down)替换  
+将~/.wine/drive_c/windows/system32/下的iphlpapi.dll[版本:Windows 2008 x86](http://www.startos.com/plus/dll.php?os=Windows_2008+32%E4%BD%8D&dll=iphlpapi.dll&ac=down)和riched20.dll[Windows 7 x86](http://www.startos.com/plus/dll.php?os=Windows_7+32%E4%BD%8D&dll=riched20.dll&ac=down)替换  
 **修改注册表**  
 将~/.wine/user.reg添加下列信息  
 
