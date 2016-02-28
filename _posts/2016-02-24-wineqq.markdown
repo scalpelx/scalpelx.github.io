@@ -48,11 +48,11 @@ wine ./QQ7.9Light.exe
 "txupd.exe"=""
 ```
 **替换字体**（解决部分中文出现方框）  
-修改system.reg注册表文件（可修改为自己喜欢的字体）  
+修改system.reg注册表文件（可修改为自己喜欢的字体，如果有更好看的字体，请分享：)）  
 
 ```
 [Software\\Microsoft\\Windows NT\\CurrentVersion\\FontLink\\SystemLink] 1420549548 0
-"Tahoma"="uming.ttc,AR PL UMing CN"
+"Tahoma"="wqy-microhei.ttc,\x6587\x6cc9\x9a7f\x7b49\x5bbd\x5fae\x7c73\x9ed1"
 ```
 
 运行QQ
