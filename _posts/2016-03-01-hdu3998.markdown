@@ -1,0 +1,158 @@
+---
+layout:     post
+title:      "HDU3998 Sequence(最长上升子序列 + 最大流)"
+subtitle:   "Longest Increasing Subsequence & Maximum Flow"
+description: ""
+date:       2016-03-01 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- 网络流
+---
+[题目链接](http://acm.hdu.edu.cn/showproblem.php?pid=3998)  
+**题意**：找出最长上升子序列的个数。  
+**思路**：先预处理LIS，然后拆点建图，用最大流来处理。对每个点i拆为i和i+n，连边(i,i+n,1)，设源点为0，汇点为2\*n+1，然后根据求出的LIS，对每个d[i]==1的点，连边(0,i,1)，若d[i]==k(LIS长度)，连边(i+n,2\*n+1,1)，对j>i，若d[j]==d[i]+1，连边(i+n,j,1)，因为所有边的流量为1，所以每个点只会被访问一次，访问顺序为求解LIS过程中d[i]=1的点一直到k，这样LIS为k的个数即为图的最大流。  
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+using namespace std;
+
+#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+const int INF = 0x3f3f3f3f;
+const int MAXN = 10000;
+const int MAXM = 1000000;
+struct Edge
+{
+    int to, next, cap, flow;
+} edge[MAXM]; 
+int tol;
+int head[MAXN];
+int gap[MAXN], dep[MAXN], pre[MAXN], cur[MAXN];
+void init()
+{
+    tol = 0;
+    memset(head, -1, sizeof(head));
+}
+int id[MAXM];
+void addedge(int u, int v, int w, int rw = 0)
+{
+    edge[tol].to = v;
+    edge[tol].cap = w;
+    edge[tol].next = head[u];
+    edge[tol].flow = 0;
+    head[u] = tol++;
+    edge[tol].to = u;
+    edge[tol].cap = rw;
+    edge[tol].next = head[v];
+    edge[tol].flow = 0;
+    head[v] = tol++;
+}
+int sap(int start, int end, int N)
+{
+    memset(gap, 0, sizeof(gap));
+    memset(dep, 0, sizeof(dep));
+    memcpy(cur, head, sizeof(head));
+    int u = start;
+    pre[u] = -1;
+    gap[0] = N;
+    int ans = 0;
+    while (dep[start] < N)
+    {
+        if (u == end)
+        {
+            int Min = INF;
+            for (int i = pre[u]; i != -1; i = pre[edge[i ^ 1].to])
+                if (Min > edge[i].cap - edge[i].flow)
+                    Min = edge[i].cap - edge[i].flow;
+            for (int i = pre[u]; i != -1; i = pre[edge[i ^ 1].to])
+            {
+                edge[i].flow += Min;
+                edge[i ^ 1].flow -= Min;
+            }
+            u = start;
+            ans += Min;
+            continue;
+        }
+        bool flag = false;
+        int v;
+        for (int i = cur[u]; i != -1; i = edge[i].next)
+        {
+            v = edge[i].to;
+            if (edge[i].cap - edge[i].flow && dep[v] + 1 == dep[u])
+            {
+                flag = true;
+                cur[u] = pre[v] = i;
+                break;
+            }
+        }
+        if (flag)
+        {
+            u = v;
+            continue;
+        }
+        int Min = N;
+        for (int i = head[u]; i != -1; i = edge[i].next)
+            if (edge[i].cap - edge[i].flow && dep[edge[i].to] < Min)
+            {
+                Min = dep[edge[i].to];
+                cur[u] = i;
+            }
+        --gap[dep[u]];
+        if (!gap[dep[u]])
+            return ans;
+        dep[u] = Min + 1;
+        ++gap[dep[u]];
+        if (u != start)
+            u = edge[pre[u] ^ 1].to;
+    }
+    return ans;
+}
+int s[MAXN], d[MAXN];
+int LIS(int length)
+{
+    int ans = 0;
+    for (int i = 1; i <= length; ++i)
+    {
+        d[i] = 1;
+        for (int j = 1; j < i; ++j)
+        {
+            if (s[j] < s[i] && d[j] >= d[i])
+                d[i] = d[j] + 1;
+        }
+        if (ans < d[i])
+            ans = d[i];
+    }
+    return ans;
+}
+int main()
+{
+    FIO
+    int n;
+    while (cin >> n)
+    {
+        for (int i = 1; i <= n; ++i)
+            cin >> s[i];
+        int k = LIS(n);
+        init();
+        for (int i = 1; i <= n; ++i)
+        {
+            addedge(i, i + n, 1);
+            if (d[i] == 1)
+                addedge(0, i, 1);
+            if (d[i] == k)
+                addedge(i + n, (n << 1) + 1, 1);
+            for (int j = i + 1; j <= n; ++j)
+                if (d[j] == d[i] + 1)
+                    addedge(i + n, j, 1);
+        }
+        cout << k << endl;
+        cout << sap(0, (n << 1) + 1, (n + 1) << 1) << endl;
+    }
+    return 0;
+}
+~~~
