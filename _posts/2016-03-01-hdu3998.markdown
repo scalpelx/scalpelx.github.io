@@ -53,7 +53,7 @@ void addedge(int u, int v, int w, int rw = 0)
     edge[tol].flow = 0;
     head[v] = tol++;
 }
-int isap(int start, int end, int N)
+int ISAP(int start, int end, int N)
 {
     memset(gap, 0, sizeof(gap));
     memset(dep, 0, sizeof(dep));
@@ -154,7 +154,7 @@ int main()
                     addedge(i + n, j, 1);
         }
         cout << k << endl;
-        cout << isap(0, (n << 1) + 1, (n + 1) << 1) << endl;
+        cout << ISAP(0, (n << 1) + 1, (n + 1) << 1) << endl;
     }
     return 0;
 }
