@@ -17,28 +17,29 @@ tags:
 ~~~cpp
 #include <iostream>
 #include <algorithm>
-#include <cstdio>
 #include <cstring>
-#include <cmath>
+
 using namespace std;
 
 #define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+
 const int INF = 0x3f3f3f3f;
 const int MAXN = 10000;
 const int MAXM = 1000000;
+
 struct Edge
 {
     int to, next, cap, flow;
 } edge[MAXM]; 
 int tol;
-int head[MAXN];
+int head[MAXN], id[MAXM];
 int gap[MAXN], dep[MAXN], pre[MAXN], cur[MAXN];
+
 void init()
 {
     tol = 0;
     memset(head, -1, sizeof(head));
 }
-int id[MAXM];
 void addedge(int u, int v, int w, int rw = 0)
 {
     edge[tol].to = v;
@@ -112,6 +113,7 @@ int sap(int start, int end, int N)
     }
     return ans;
 }
+
 int s[MAXN], d[MAXN];
 int LIS(int length)
 {
@@ -129,6 +131,7 @@ int LIS(int length)
     }
     return ans;
 }
+
 int main()
 {
     FIO
