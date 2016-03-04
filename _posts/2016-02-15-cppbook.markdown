@@ -13,45 +13,45 @@ tags:
 ---
 基础
 ---
-＂C++ Primer"  
-"The C++ Programming Language"  
+*C++ Primer*  
+*The C++ Programming Language*  
 
 进阶  
 ---
-"Effective Modern C++"  
-"More Effective C++"  
-"Ruminations on C++"  
-"Accelerated C++"  
-"The C++ Standard Library"  
-"Effective STL"  
+*Effective Modern C++*  
+*More Effective C++*  
+*Ruminations on C++*  
+*Accelerated C++*  
+*The C++ Standard Library*  
+*Effective STL*  
 
 软件工程  
 ---
-"Man-Month Mythical"  
-"Code Complete"  
-"Clean Code"  
-"Design Patterns"  
-"Coders at Work"  
-"Refactoring Improving the Design of Existing Code"  
+*Man-Month Mythical*  
+*Code Complete*  
+*Clean Code*  
+*Design Patterns*  
+*Coders at Work*  
+*Refactoring Improving the Design of Existing Code*  
 
 Linux
 ---
 《鸟哥的Linux私房菜》  
-"Beginning Linux Programming"  
-"Advanced Programming in the UNIX Environment"  
-"TCP/IP Illustrated"  
-"Unix Network Programming"  
-"Understanding the Linux Kernel"  
-"Linux Command Line and Shell Scripting Bible"  
-"Linux Kernel Development"  
+*Beginning Linux Programming*  
+*Advanced Programming in the UNIX Environment*  
+*TCP/IP Illustrated*  
+*Unix Network Programming*  
+*Understanding the Linux Kernel*  
+*Linux Command Line and Shell Scripting Bible*  
+*Linux Kernel Development*  
 
 其他
 ---
-"Introduction to Algorithms"  
-"Programming Pearls"  
+*Introduction to Algorithms*  
+*Programming Pearls*  
 《数学之美》  
 《并行程序设计》  
-"Database Management Systems"  
+*Database Management Systems*  
 
 
 
