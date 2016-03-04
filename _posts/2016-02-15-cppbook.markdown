@@ -49,9 +49,9 @@ Linux
 ---
 *Introduction to Algorithms*  
 *Programming Pearls*  
+*Database Management Systems*  
 《数学之美》  
 《并行程序设计》  
-*Database Management Systems*  
 
 
 
