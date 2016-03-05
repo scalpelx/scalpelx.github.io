@@ -33,6 +33,19 @@ const int INF = 0x3f3f3f3f;
 const int MAXN = 28;
 const int MAXM = 1000;
 
+int father[26];
+int find(int a)
+{
+    return father[a] == a ? a : father[a] = find(father[a]);
+}
+void merge(int a, int b)
+{
+    int x = find(a);
+    int y = find(b);
+    if (x != y)
+        father[x] = y;
+}
+
 struct Edge
 {
     int to, next, cap, flow;
@@ -120,18 +133,6 @@ int ISAP(int start, int end, int N)
     return ans;
 }
 
-int father[26];
-int find(int a)
-{
-    return father[a] == a ? a : father[a] = find(father[a]);
-}
-void merge(int a, int b)
-{
-    int x = find(a);
-    int y = find(b);
-    if (x != y)
-        father[x] = y;
-}
 int main()
 {
     FIO
