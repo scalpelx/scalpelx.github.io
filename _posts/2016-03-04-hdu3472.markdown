@@ -1,0 +1,206 @@
+---
+layout:     post
+title:      "HDU3472 HS BDC(混合图欧拉回路)"
+subtitle:   "网络流"
+description: ""
+date:       2016-03-04 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- 网络流
+---
+[题目链接](http://acm.hdu.edu.cn/showproblem.php?pid=3472)  
+**题意**：给出一些单词，问是否能将所有单词首尾相连，每个单词用且仅用1次，其中有些单词可以反转。  
+**思路**：  
+　　先说一下如何求解混合图欧拉回路的问题：因为存在有向边，所以可以把剩下的无向边随意定向化为有向图，这样充要条件就是每个节点的入度等于出度。  
+　　首先利用并查集判断图的连通性，如果不连通，那么无解。接下来就是让节点的入度等于出度，怎么做呢，因为无向边可以随意定向，每次对一条边反向之后，顶点的出入度之差会±2，所以我们要做的就是调整无向边，使顶点的出入度之差为0。调整之前我们可以先出入度之差是否是偶数，不是的话则无解。  
+　　那么该怎么调整呢，我们可以利用网络流来做，原来的有向边可以先不用考虑（节点度的信息还是不变），每当节点i,j有无向边相连，则连一条从i到j，容量为1的边（有重边可以连多条，或者调整流量），对每个点，如果其出度大于入度，则从源点向它连一条容量为(出度-入度)/2的边，如果入度大于出度，则从它向汇点连一条容量为(入度-出度)/2的边，最后求所建图的最大流，如果从源点所有的边都满载，则存在欧拉回路，此时把有流的边反向，然后再加入原来的有向边，就得到欧拉回路了。  
+　　那么为什么可以这么做呢，首先对于没有和源点、汇点相连的点，它们的出入度相等，不需要调整，反向之后也会保持平衡；对于和源汇点相连的点，它们之间的边每增加一个流量，就相当于存在一条从源点到汇点的边，我们反向调整一次，出入度之差就会减2，因为是满流，所以可以把它们的出入度之差都调整为0，这样所有的点出入度都相等，就找到欧拉回路了。  
+　　最后说一下这道题的建图过程：对每个单词看做一条边，首字母和尾字母是顶点，可以反转的单词看做有向边。这题属于欧拉路径问题，我们可以把它转化为欧拉回路。如果存在两个出入度之和为奇数的点，可以把它们设为欧拉路径的起点和终点，然后连一条容量为1的边，变成欧拉回路。这样就可以利用上面说的方法求解了。
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+
+using namespace std;
+
+#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+
+const int INF = 0x3f3f3f3f;
+const int MAXN = 28;
+const int MAXM = 1000;
+
+struct Edge
+{
+    int to, next, cap, flow;
+} edge[MAXM]; 
+int tol;
+int head[MAXN], id[MAXM];
+int gap[MAXN], dep[MAXN], pre[MAXN], cur[MAXN];
+
+void init()
+{
+    tol = 0;
+    memset(head, -1, sizeof(head));
+}
+void addedge(int u, int v, int w, int rw = 0)
+{
+    edge[tol].to = v;
+    edge[tol].cap = w;
+    edge[tol].next = head[u];
+    edge[tol].flow = 0;
+    head[u] = tol++;
+    edge[tol].to = u;
+    edge[tol].cap = rw;
+    edge[tol].next = head[v];
+    edge[tol].flow = 0;
+    head[v] = tol++;
+}
+int ISAP(int start, int end, int N)
+{
+    memset(gap, 0, sizeof(gap));
+    memset(dep, 0, sizeof(dep));
+    memcpy(cur, head, sizeof(head));
+    int u = start;
+    pre[u] = -1;
+    gap[0] = N;
+    int ans = 0;
+    while (dep[start] < N)
+    {
+        if (u == end)
+        {
+            int Min = INF;
+            for (int i = pre[u]; i != -1; i = pre[edge[i ^ 1].to])
+                if (Min > edge[i].cap - edge[i].flow)
+                    Min = edge[i].cap - edge[i].flow;
+            for (int i = pre[u]; i != -1; i = pre[edge[i ^ 1].to])
+            {
+                edge[i].flow += Min;
+                edge[i ^ 1].flow -= Min;
+            }
+            u = start;
+            ans += Min;
+            continue;
+        }
+        bool flag = false;
+        int v;
+        for (int i = cur[u]; i != -1; i = edge[i].next)
+        {
+            v = edge[i].to;
+            if (edge[i].cap - edge[i].flow && dep[v] + 1 == dep[u])
+            {
+                flag = true;
+                cur[u] = pre[v] = i;
+                break;
+            }
+        }
+        if (flag)
+        {
+            u = v;
+            continue;
+        }
+        int Min = N;
+        for (int i = head[u]; i != -1; i = edge[i].next)
+            if (edge[i].cap - edge[i].flow && dep[edge[i].to] < Min)
+            {
+                Min = dep[edge[i].to];
+                cur[u] = i;
+            }
+        --gap[dep[u]];
+        if (!gap[dep[u]])
+            return ans;
+        dep[u] = Min + 1;
+        ++gap[dep[u]];
+        if (u != start)
+            u = edge[pre[u] ^ 1].to;
+    }
+    return ans;
+}
+
+int father[26];
+int find(int a)
+{
+    return father[a] == a ? a : father[a] = find(father[a]);
+}
+void merge(int a, int b)
+{
+    int x = find(a);
+    int y = find(b);
+    if (x != y)
+        father[x] = y;
+}
+int main()
+{
+    FIO
+    int T;
+    cin >> T;
+    for (int t = 1; t <= T; ++t)
+    {
+        int n;
+        cin >> n;
+        for (int i = 0; i != 26; ++i)
+            father[i] = i;
+        int in[26] = {0}, out[26] = {0};
+        init();
+        string word;
+        for (int i = 0; i != n; ++i)
+        {
+            int type;
+            cin >> word >> type;
+            int u = word.front() - 'a';
+            int v = word.back() - 'a';
+            ++out[u];
+            ++in[v];
+            if (type == 1)
+                addedge(u, v, 1);
+            merge(u, v);
+        }
+        bool flag = true;
+        int count = 0, begin = -1, end = -1;
+        for (int i = 0; i != 26 && flag; ++i)
+            if (in[i] || out[i])
+            {
+                if (find(i) != find(word.front() - 'a'))
+                {
+                    flag = false;
+                }
+                else if ((in[i] + out[i]) & 1)
+                {
+                    ++count;
+                    if (begin == -1)
+                        begin = i;
+                    else
+                        end = i;
+                }
+            }
+        if (count != 0 && count != 2)
+            flag = false;
+        if (count == 2)
+        {
+            ++out[begin];
+            ++in[end];
+            addedge(begin, end, 1);
+        }
+        int sum = 0;
+        for (int i = 0; i != 26 && flag; ++i)
+        {
+            if (out[i] - in[i] > 0)
+            {
+                addedge(26, i, (out[i] - in[i]) / 2);
+                sum += (out[i] - in[i]) / 2;
+            }
+            else if (in[i] - out[i] > 0)
+                addedge(i, 27, (in[i] - out[i]) / 2);
+        }
+        if (flag && sum != ISAP(26, 27, 28))
+                flag = false;
+        if (flag)
+            cout << "Case " << t << ": Well done!" << endl;
+        else
+            cout << "Case " << t << ": Poor boy!" << endl;
+    }
+    return 0;
+}
+~~~
