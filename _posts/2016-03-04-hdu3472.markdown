@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "HDU3472 HS BDC(混合图欧拉回路)"
-subtitle:   "网络流"
+subtitle:   "网络流&并查集"
 description: ""
 date:       2016-03-04 01:00:00
 author:     "Scalpel"
@@ -9,6 +9,7 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 题解
 - 网络流
+- 并查集
 ---
 [题目链接](http://acm.hdu.edu.cn/showproblem.php?pid=3472)  
 **题意**：给出一些单词，问是否能将所有单词首尾相连，每个单词用且仅用1次，其中有些单词可以反转。  
