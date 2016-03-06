@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Codeforces 627 B(树状数组)"
-subtitle:   "Binary-indexed Tree"
+subtitle:   "Binary Indexed Tree"
 description: ""
 date:       2016-03-06 11:00:00
 author:     "Scalpel"
@@ -13,7 +13,7 @@ tags:
 ---
 [题目链接](http://codeforces.com/problemset/problem/627/B)  
 **题意**：  
-一个工厂需要生产一些原木，每天可以生产a个，但是因为一些机器坏了，所以一天只能生产b个，修好需要k天，并且这段时间不能在生产，工厂会接一些订单，每个订单需要一个原木。  
+一个工厂需要生产一些原木，每天可以生产a个，但是因为一些机器坏了，所以一天只能生产b个，修好需要k天，并且这段时间不能在生产，工厂会接一些订单，每个订单需要一个原木并且在当天生产完成。  
 然后给出q个更新，更新有两种格式，第一种是：*1, di, ai*表示在第di天新增了ai个订单；第二种是：*2, pi*表示在第pi天修复机器。  
 输出对每个pi，最多可以满足多少订单。*注意：修复只能修一次，相当于一次独立的查询*  
 **思路**：  
