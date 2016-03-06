@@ -9,6 +9,7 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 题解
 - 网络流
+- HDU
 ---
 [题目链接](http://acm.hdu.edu.cn/showproblem.php?pid=3998)  
 **题意**：求出最长上升子序列的长度k，并找出序列中最长上升子序列的个数。  
