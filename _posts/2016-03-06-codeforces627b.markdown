@@ -1,0 +1,82 @@
+---
+layout:     post
+title:      "Codeforces 627 B(树状数组)"
+subtitle:   "Binary-indexed Tree"
+description: ""
+date:       2016-03-06 11:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- 树状数组
+- Codeforces
+---
+[题目链接](http://codeforces.com/problemset/problem/627/B)  
+**题意**：  
+一个工厂需要生产一些原木，每天可以生产a个，但是因为一些机器坏了，所以一天只能生产b个，修好需要k天，并且这段时间不能在生产，工厂会接一些订单，每个订单需要一个原木。  
+然后给出q个更新，更新有两种格式，第一种是：*1, di, ai*表示在第di天新增了ai个订单；第二种是：*2, pi*表示在第pi天修复机器。  
+输出对每个pi，最多可以满足多少订单。*注意：修复只能修一次，相当于一次独立的查询*  
+**思路**：  
+可以利用树状数组来维护修复前后的区间和，每更新一个订单，就对di执行update操作，因为修复前后每天的生产量不同，修复前最大为a，修复后最大为b，所以要维护两个不同的区间和，并且每次增加订单后，当天的生产量不能超过最大的生产量。  
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+const int INF = 0x3f3f3f3f;
+const int MAXN = 200010;
+int tree[MAXN][2];
+
+int lowbit(int x)
+{
+    return x & (-x);
+}
+void update(int x, int add, int type)
+{
+    while (x <= MAXN)
+    {
+        tree[x][type] += add;
+        x += lowbit(x);
+    }
+}
+int sum(int x, int type)
+{
+    int s = 0;
+    while (x)
+    {
+        s += tree[x][type];
+        x -= lowbit(x);
+    }
+    return s;
+}
+int main() 
+{
+    int n, k, a, b, q;
+    cin >> n >> k >> a >> b >> q;
+    int order[MAXN] = {0};
+    for (int i = 0; i < q; ++i)
+    {
+        int op;
+        cin >> op;
+        if (op == 1)
+        {
+            int day, num;
+            cin >> day >> num;
+            int pre = order[day];
+            order[day] += num;
+            update(day, min(a, order[day]) - min(a, pre), 1);
+            update(day, min(b, order[day]) - min(b, pre), 0);
+        }
+        else
+        {
+            int p;
+            cin >> p;
+            cout << sum(p - 1, 0) + sum(n, 1) - sum(p + k - 1, 1) << endl;
+        }
+    }
+    return 0;
+}
+~~~
