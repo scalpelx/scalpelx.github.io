@@ -18,7 +18,7 @@ tags:
 *2, pi* 表示选择在第pi天修复机器。  
 输出对每个pi，最多可以满足总共多少订单。*注意：修复只能修一次，相当于一次独立的查询*  
 **思路**：  
-可以利用树状数组来维护修复前后的前缀和，每增加ai订单，就对di执行更新操作，因为修复前后每天的生产量不同，修复前最大为a，修复后最大为b，所以要维护两个不同的前缀和，并且每次增加订单后，当天的生产量不能超过最大的生产量。最后输出\[1, pi - 1\]和\[pi + k, n\]这两个最大产量不同的区间和即可。  
+可以利用树状数组来维护修复前后的前缀和，每增加ai订单，就对di执行更新操作，因为修复前后每天的生产量不同，修复前最大为a，修复后最大为b，所以要维护两个不同的前缀和，并且每次增加订单后，当天的生产量不能超过最大的生产量，所以更新时要比较一下。最后输出\[1, pi - 1\]和\[pi + k, n\]这两个最大产量不同的区间和的和即可(注意利用树状数组求区间和时的端点)。  
 
 ~~~cpp
 #include <iostream>
@@ -29,7 +29,7 @@ using namespace std;
 #define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
 const int INF = 0x3f3f3f3f;
 const int MAXN = 200010;
-int tree[MAXN][2];
+int tree[2][MAXN];
 
 int lowbit(int x)
 {
@@ -39,7 +39,7 @@ void update(int x, int add, int type)
 {
     while (x <= MAXN)
     {
-        tree[x][type] += add;
+        tree[type][x] += add;
         x += lowbit(x);
     }
 }
@@ -48,7 +48,7 @@ int sum(int x, int type)
     int s = 0;
     while (x)
     {
-        s += tree[x][type];
+        s += tree[type][x];
         x -= lowbit(x);
     }
     return s;
@@ -66,16 +66,16 @@ int main()
         {
             int day, num;
             cin >> day >> num;
-            int pre = order[day];
+            int previous = order[day];
             order[day] += num;
-            update(day, min(a, order[day]) - min(a, pre), 1);
-            update(day, min(b, order[day]) - min(b, pre), 0);
+            update(day, min(b, order[day]) - min(b, previous), 0);
+            update(day, min(a, order[day]) - min(a, previous), 1);
         }
         else
         {
             int p;
             cin >> p;
-            cout << sum(p - 1, 0) + sum(n, 1) - sum(p + k - 1, 1) << endl;
+            cout << sum(p - 1, 0) + (sum(n, 1) - sum(p + k - 1, 1)) << endl;
         }
     }
     return 0;
