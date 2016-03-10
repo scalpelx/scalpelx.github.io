@@ -1,0 +1,72 @@
+---
+layout:     post
+title:      "Codeforces 627F Group Projects(动态规划)"
+subtitle:   "Dynamic programming"
+description: ""
+date:       2016-03-10 11:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- 动态规划
+- Codeforces
+---
+[题目链接](http://codeforces.com/problemset/problem/626/F)  
+**题意**：  
+有n个人完成一项团队项目，第i个人可花费ai时间独立完成自己的一份工作，把n个人划分成多组，定义每组的imbalance为其中的ai的最大值减ai的最小值，求有多少种分组方案使得imbalance之和最多为k。   
+**思路**：  
+首先对ai排序，然后利用动态规划来做。设dp\[i\]\[j\]\[t\]为考虑了i个人，有j个组是开放的（只有ai的最小值，没有最大值，组内还可以继续加人），imbalance之和为t。对第i个人有四种转移：
+1、第i个人自己单独一个非开放的组；   
+2、第i个人进入j个开放的组中的某一个； 
+3、第i个人作为某个开放的组的最大值，从而关闭这个组。     
+4、第i个人新开一个开放的组；  
+其中第i个人对imbalance之和的增加量为j\*(a[i]-a[i-1]) *这个地方想了好久才明白，加第i个人时，只会对当前开放的j个组有影响，因为其他的最大值已经确定，对于每个开放的组，我们可以将它们的最值都增加a[i]-a[i-1]，这样可以得到a[i]，并且相当于虚拟的把a[i]放进各组中，最后可以确定各组的最大值。* 
+可以用滚动数组减少空间占用。  
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+
+using namespace std;
+
+#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+const int MOD = 1000000007;
+
+long long dp[2][201][1001];
+int main() 
+{
+    FIO
+    int n, k;
+    cin >> n >> k;
+    int a[201] = {0};
+    for (int i = 1; i <= n; ++i) 
+        cin >> a[i];
+    sort(a + 1, a + n + 1);
+    int u = 0;
+    dp[u][0][0] = 1;
+    for (int i = 1; i <= n; ++i) 
+    {
+        u ^= 1;
+        memset(dp[u], 0, sizeof(dp[u]));
+        for (int j = 0; j <= n; ++j) 
+        {
+            int add = a[i] - a[i - 1];
+            for (int t = 0; t <= k && t + j * add <= k; ++t) 
+                if (dp[u ^ 1][j][t]) 
+                {
+                    dp[u][j][t + j * add] = (dp[u][j][t + j * add] + dp[u ^ 1][j][t]) % MOD; 
+                    dp[u][j][t + j * add] = (dp[u][j][t + j * add] + dp[u ^ 1][j][t] * j % MOD) % MOD; 
+                    if (j > 0) 
+                        dp[u][j - 1][t + j * add] = (dp[u][j - 1][t + j * add] + dp[u ^ 1][j][t] * j % MOD) % MOD; 
+                    dp[u][j + 1][t + j * add] = (dp[u][j + 1][t + j * add] + dp[u ^ 1][j][t]) % MOD; 
+                }
+        }
+    }
+    long long ans = 0;
+    for (int i = 0; i <= k; ++i) 
+        ans = (ans + dp[u][0][i]) % MOD;
+    cout << ans << '\n';
+    return 0;
+}
+~~~
