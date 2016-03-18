@@ -72,6 +72,10 @@ friends: [
   {
     title: "Binary10's Blog",
     href: "http://binary10.farbox.com"
+  },
+  {
+    title: "CodeMIRACLE's Blog"
+    href: "http://www.cnblogs.com/CodeMIRACLE"
   }
 ]
 
