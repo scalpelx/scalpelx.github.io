@@ -58,7 +58,7 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
   {
-    title: "MyCodeBattle's Blog",
+    title: "PureFrog's Home",
     href: "http://mycodebattle.com"
   },
   {
@@ -76,7 +76,11 @@ friends: [
   {
     title: "CodeMIRACLE's Blog",
     href: "http://www.cnblogs.com/CodeMIRACLE"
-  }
+  },
+  {
+    title: "SHIELD-SKY's Blog",
+    href: "http://shield-sky.github.io"
+  },
 ]
 
 #gem
