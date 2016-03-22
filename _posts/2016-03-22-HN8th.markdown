@@ -1,0 +1,80 @@
+---
+layout:     post
+title:      "引水工程(最小生成树)"
+subtitle:   "Minimum Spanning Tree"
+description: ""
+date:       2016-03-16 11:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- 最小生成树
+
+---
+[题目链接](http://acm.nyist.edu.cn/JudgeOnline/problem.php?pid=1239)  
+**题意**：  
+有N个区域需要建设水资源工程，可以自建水库解决缺水，也可以从已有水源的地区建立管道引水，给出自建水库的费用W和相互引水的费用P，求工程的最小花费。  
+**思路**：  
+最小生成树的模板题，稠密图，可以用Prim算法。以引水的费用作为边权，找到自建费用最低的区域，以它为根，通过比较自建和引水的最小值`lowcost[i] = min(G[k][i], cost[i])`来不断生成树。
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+const int INF = 0x3f3f3f3f;
+
+int G[300][300], lowcost[300], cost[300];
+bool used[300];
+
+int prim(int vcount, int minv)
+{
+    int sum = 0;
+    for (int i = 0; i < vcount; i++)
+    {
+        lowcost[i] = min(G[minv][i], cost[i]);
+        used[i] = false;
+    }
+    used[minv] = true;
+    for (int i = 1; i <= vcount - 1; i++)
+    {
+        int j = 0, mincost = INF;
+        for (int k = 0; k < vcount; k++)
+            if ((!used[k]) && (lowcost[k] < mincost))
+            {
+                mincost = lowcost[k];
+                j = k;
+            }
+        used[j] = true;
+        sum += mincost;
+        for (int k = 0; k < vcount; k++)
+            if (!used[k] && (min(cost[k], G[j][k]) < lowcost[k]))
+                lowcost[k] = min(cost[k], G[j][k]);
+    }
+    return sum;
+}
+
+int main()
+{
+    int k;
+    cin >> k;
+    while(k--)
+    {
+        int n;
+        cin >> n;
+        int minv = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            cin >> cost[i];
+            if (cost[minv] > cost[i])
+                minv = i;
+        }
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < n; ++j)
+                cin >> G[i][j];
+        cout << prim(n, minv) + cost[minv]<< endl;
+    }
+    return 0;
+}
+~~~
