@@ -61,7 +61,7 @@ endfunction
 ```
 " 映射全选+复制 Ctrl+A  
 map <C-A> ggVG  
-map! <C-A> <Esc>ggVGY  
+map! <C-A> <Esc>ggVG  
 map <F12> gg=G  
 " 选中状态下 Ctrl+C 复制  
 vmap <C-c> "+y  
