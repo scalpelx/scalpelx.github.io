@@ -20,6 +20,7 @@ tags:
 ---
 *Effective Modern C++*  
 *More Effective C++*  
+*The Design and Evolution of C++*  
 *Ruminations on C++*  
 *Accelerated C++*  
 *The C++ Standard Library*  
