@@ -26,7 +26,7 @@ tags:
 using namespace std;
 
 #define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
-#define FILEREAD freopen("/home/scalpel/Code/input.txt", "r", stdin);
+#define FILEREAD freopen("input.txt", "r", stdin);
 const int INF = 0x3f3f3f3f;
 
 vector<pair<int, int>> v[200001];
