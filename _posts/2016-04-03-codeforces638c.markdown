@@ -1,0 +1,79 @@
+---
+layout:     post
+title:      "Codeforces 638C Road Improvement(DFS)"
+subtitle:   ""
+description: ""
+date:       2016-03-22 11:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- DFS
+
+---
+[题目链接](http://codeforces.com/problemset/problem/638/C)  
+**题意**：  
+有n个城市，给出n-1条双向道路使它们都相互连通，每天可选择任意多不相邻的路维修，每条路一天就可以修完，求出最少多少天可以把所有的路都修完。    
+**思路**：  
+用DFS对图遍历，只要相邻的两条路维修的那一天不一样即可，例如如果有一条边第2天维修，它有三条相邻的边，则可依次在第1、3、4天维修，对每条边以此类推。
+
+~~~cpp
+#include <iostream>
+#include <vector>
+#include <utility>
+
+using namespace std;
+
+#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("/home/scalpel/Code/input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+
+vector<pair<int, int>> v[200001];
+vector<int> ans[200000];
+int k = 0;
+
+void dfs(int curv, int prev, int curtime)
+{
+    int fixtime = 0;
+    for (auto i : v[curv])
+    {
+        int nextv = i.first;
+        if (nextv != prev)
+        {
+            ++fixtime;
+            if (fixtime == curtime)
+                ++fixtime;
+            if (fixtime > k)
+                k = fixtime;
+            ans[fixtime].push_back(i.second);
+            dfs(nextv, curv, fixtime);
+        }
+    }
+}
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    int n;
+    cin >> n;
+    for (int i = 1; i < n; ++i)
+    {
+        int u, w;
+        cin >> u >> w;
+        v[u].push_back({w, i});
+        v[w].push_back({u, i});
+    }
+    dfs(1, 0, 0);
+    cout << k << endl;
+    for(int i = 1; i <= k; ++i)
+    {
+        cout << ans[i].size() << " ";
+        for(int d : ans[i])
+            cout << d << " ";
+        cout << endl;
+    }
+    return 0;
+}
+~~~
