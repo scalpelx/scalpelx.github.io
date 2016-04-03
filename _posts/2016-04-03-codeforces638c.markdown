@@ -9,6 +9,7 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 题解
 - DFS
+- Codeforces
 
 ---
 [题目链接](http://codeforces.com/problemset/problem/638/C)  
