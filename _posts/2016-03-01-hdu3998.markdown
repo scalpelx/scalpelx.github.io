@@ -2,7 +2,7 @@
 layout:     post
 title:      "HDU3998 Sequence(最长上升子序列 + 最大流)"
 subtitle:   "Longest Increasing Subsequence & Maximum Flow"
-description: "HDU LIS Maximum Flow"
+description: "HDU3998 LIS Maximum Flow"
 date:       2016-03-01 01:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
