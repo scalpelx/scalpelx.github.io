@@ -2,7 +2,7 @@
 layout:     post
 title:      "Codeforces 629C Famil Door and Brackets(动态规划)"
 subtitle:   "Dynamic programming"
-description: ""
+description: "Codeforces 629C DP"
 date:       2016-03-16 11:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
