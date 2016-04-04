@@ -2,7 +2,7 @@
 layout:     post
 title:      "C++ & Linux开发书籍"
 subtitle:   "C++ & Linux development book"
-description: ""
+description: "C++ Linux Book"
 date:       2016-02-15 15:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
