@@ -2,7 +2,7 @@
 layout:     post
 title:      "引水工程(最小生成树)"
 subtitle:   "Minimum Spanning Tree"
-description: ""
+description: "河南ACM省赛 MST"
 date:       2016-03-22 11:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
