@@ -28,6 +28,7 @@ let g:clang_use_library=1
 let g:clang_trailing_placeholder=1 " add trailing placeholder after function
 let g:clang_user_options='-std=c++11 -IIncludePath'
 let g:neocomplcache_enable_at_startup = 1
+set completeopt=menu,longest
 ```
 taglist配置
 
@@ -43,8 +44,8 @@ nmap wm :WMToggle<cr>
 ```
 inoremap ( ()<ESC>i
 inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {<CR>}<ESC>O
-inoremap } <c-r>=ClosePair('}')<CR>
+"inoremap { {<CR>}<ESC>O
+"inoremap } <c-r>=ClosePair('}')<CR>
 inoremap [ []<ESC>i
 inoremap ] <c-r>=ClosePair(']')<CR>
 function! ClosePair(char)
