@@ -2,7 +2,7 @@
 layout:     post
 title:      "我的队友那些事（不断更新ing）"
 subtitle:   "Update:2016-03-01"
-description: "记录我和队友们的日常"
+description: "ACM 队友"
 date:       2016-02-28 12:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
