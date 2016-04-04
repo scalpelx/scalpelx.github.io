@@ -2,7 +2,7 @@
 layout:     post
 title:      "Codeforces 627B Factory Repairs(树状数组)"
 subtitle:   "Binary Indexed Tree"
-description: "Codeforces BIT"
+description: "Codeforces 627B BIT"
 date:       2016-03-06 11:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
