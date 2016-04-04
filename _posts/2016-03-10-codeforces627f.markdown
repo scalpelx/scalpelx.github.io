@@ -2,7 +2,7 @@
 layout:     post
 title:      "Codeforces 627F Group Projects(动态规划)"
 subtitle:   "Dynamic programming"
-description: ""
+description: "Codeforces 627F DP"
 date:       2016-03-10 11:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
