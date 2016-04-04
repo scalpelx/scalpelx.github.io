@@ -2,7 +2,7 @@
 layout:     post
 title:      "Sublime Text 3(C++、Python)个人配置"
 subtitle:   "Sublime Text 3(C++、Python) Config"
-description: ""
+description: "sublime text 3 config"
 date:       2016-02-18 11:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
