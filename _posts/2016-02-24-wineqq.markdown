@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      "通过Wine在Linux下运行QQ"
-subtitle:   ""
-description: ""
+subtitle:   "Run QQ on Linux"
+description: "Wine QQ"
 date:       2016-02-24 01:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
