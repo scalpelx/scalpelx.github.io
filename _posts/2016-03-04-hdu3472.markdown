@@ -2,7 +2,7 @@
 layout:     post
 title:      "HDU3472 HS BDC(混合图欧拉回路)"
 subtitle:   "网络流&并查集"
-description: "Unionset Maximum Flow"
+description: "HDU3472 Unionset Maximum Flow"
 date:       2016-03-04 01:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
