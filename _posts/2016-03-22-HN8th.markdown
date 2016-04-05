@@ -25,6 +25,9 @@ using namespace std;
 
 const int INF = 0x3f3f3f3f;
 
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+
 int G[300][300], lowcost[300], cost[300];
 bool used[300];
 
@@ -57,6 +60,10 @@ int prim(int vcount, int minv)
 
 int main()
 {
+    #ifndef ONLINE_JUDGE
+        FILEREAD
+    #endif
+    FIO
     int k;
     cin >> k;
     while(k--)
