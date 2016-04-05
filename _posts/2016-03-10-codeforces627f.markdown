@@ -30,7 +30,7 @@ tags:
 
 using namespace std;
 
-#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
 const int MOD = 1000000007;
 
 long long dp[2][201][1001];
