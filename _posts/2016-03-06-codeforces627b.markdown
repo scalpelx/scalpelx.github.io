@@ -26,9 +26,10 @@ tags:
 
 using namespace std;
 
-#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
 const int INF = 0x3f3f3f3f;
 const int MAXN = 200010;
+
 int tree[2][MAXN];
 
 int lowbit(int x)
