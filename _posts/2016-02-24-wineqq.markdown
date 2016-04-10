@@ -54,8 +54,9 @@ wine ./QQ7.9Light.exe
 [Software\\Microsoft\\Windows NT\\CurrentVersion\\FontLink\\SystemLink] 1420549548 0
 "Tahoma"="uming.ttc,AR PL UMing CN"
 ```
-*Update(2016.04.10)* 
+*Update(2016.04.10)*  
 [这里](http://www.burningall.com/2016/01/04/%E8%A7%A3%E5%86%B3wine%E4%B8%8B%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/)有一种新的方法
+
 运行QQ
 ==
 终端切换目录到QQ的安装文件夹~/.wine/drive_c/Program Files (x86)/Tencent/QQLite/Bin  
