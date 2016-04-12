@@ -18,7 +18,7 @@ tags:
 **思路**：  
 因为有n个点，n-1条边，所以是一棵树，用DFS对其遍历，只要相邻的两条路维修的那一天不一样即可，例如如果有一条边第2天维修，它有三条相邻的边，则可依次在第1、3、4天维修，对每条边以此类推，类似于图染色问题。
 
-{% highlight cpp %}
+~~~cpp
 #include <iostream>
 #include <vector>
 #include <utility>
@@ -78,4 +78,4 @@ int main()
     }
     return 0;
 }
-{% endhighlight %}
+~~~
