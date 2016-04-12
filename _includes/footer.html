@@ -71,6 +71,13 @@
                 </ul>
                 <p class="copyright text-muted">
                     Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
                 </p>
             </div>
         </div>
@@ -78,51 +85,68 @@
 </footer>
 
 <!-- jQuery -->
-    <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
-    
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
-    
-    <!-- Custom Theme JavaScript -->
-    <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
-    
-    
-    <!-- async load function -->
+<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
     <script>
-        function async(u, c) {
-          var d = document, t = 'script',
-              o = d.createElement(t),
-              s = d.getElementsByTagName(t)[0];
-          o.src = u;
-          if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-          s.parentNode.insertBefore(o, s);
-        }
-    </script>
-    
-    <!-- Highlight.js -->
-    <link type="text/css" href="//cdn.bootcss.com/highlight.js/8.7/styles/monokai_sublime.min.css" rel="stylesheet">
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.7/highlight.min.js", function(){
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
-        // only load tagcloud.js in tag.html
-        if($('#tag_cloud').length !== 0){
-            async("/js/jquery.tagcloud.js",function(){
-                $.fn.tagcloud.defaults = {
-                    //size: {start: 1, end: 1, unit: 'em'},
-                    color: {start: '#bbbbee', end: '#0085a1'},
-                };
-                $('#tag_cloud a').tagcloud();
-            })
-        }
     </script>
-    <!--fastClick.js -->
-    <script>
-        async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-            var $nav = document.querySelector("nav");
-            if($nav) FastClick.attach($nav);
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
         })
-    </script>
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}

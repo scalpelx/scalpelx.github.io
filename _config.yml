@@ -17,11 +17,16 @@ twitter_username:  xieyp
 facebook_username:  xieyongpeng
 
 # Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -35,16 +40,16 @@ kramdown:
 disqus_username: scalpelxyz
 
 # Duoshuo settings
-duoshuo_username: 
+#duoshuo_username: 
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share:                     # set to false if you want to use Comment without Sharing
+#duoshuo_share:                     # set to false if you want to use Comment without Sharing
 
 # Analytics settings
 # Baidu Analytics
 ba_track_id: 8c587d5662a02c6d075f57e33b5a3ee1
 # Google Analytics
-ga_track_id: 
-ga_domain: 
+#ga_track_id: 
+#ga_domain: 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -82,6 +87,3 @@ friends: [
     href: "http://shield-sky.github.io"
   },
 ]
-
-#gem
-gems: [jekyll-paginate]

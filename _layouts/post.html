@@ -76,6 +76,7 @@ layout: default
                 <!-- 多说 Share end-->
                 {% endif %}
 
+
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
@@ -88,6 +89,7 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
+
 
                 {% if site.duoshuo_username %}
                 <!-- 多说评论框 start -->
@@ -125,7 +127,7 @@ layout: default
                     <div class="tags">
         				{% for tag in site.tags %}
                             {% if tag[1].size > {{site.featured-condition-size}} %}
-                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                				<a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                     {{ tag[0] }}
                                 </a>
                             {% endif %}
@@ -169,6 +171,7 @@ layout: default
 <!-- 多说公共JS代码 end -->
 {% endif %}
 
+
 {% if site.disqus_username %}
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -185,6 +188,7 @@ layout: default
 </script>
 <!-- disqus 公共JS代码 end -->
 {% endif %}
+
 
 {% if site.anchorjs %}
 <!-- async load function -->
