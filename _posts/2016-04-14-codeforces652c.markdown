@@ -1,0 +1,67 @@
+---
+layout:     post
+title:      "Codeforces 652C Foe Pairs(Two Pointers)"
+subtitle:   ""
+description: "Codeforces 652C Foe Pairs Two Pointers"
+date:       2016-04-14 11:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- Two Pointers
+- Codeforces
+
+---
+[题目链接](http://codeforces.com/problemset/problem/652/C)  
+**题意**：  
+给出一个长度为n的数列和m个数对，求出总共有多少个不同的区间(x, y)，区间内不包含任何数对。    
+**思路**：  
+先求出每个数在数列中的位置，然后对每个数对(a, b)，假设`pos[a] < pos[b]`，求出与a构成数对的最左边的元素`l[a] = min(l[a], pos[b])`，最后从右向左枚举每个位置，设可选择的最右元素为`r = min(l[p[i]] - 1, r)`，答案即为`ans += r - i + 1`。
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+
+int p[300000], pos[300001], l[300001];
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> p[i];
+        pos[p[i]] = i;
+    }
+    memset(l, INF, sizeof(l));
+    for (int i = 0; i < m; ++i)
+    {
+        int a, b;
+        cin >> a >> b;
+        if (pos[a] > pos[b])
+            swap(a, b);
+        l[a] = min(l[a], pos[b]);
+    }
+    long long ans = 0;
+    int r = n - 1;
+    for (int i = n - 1; i >= 0; --i)
+    {
+        r = min(l[p[i]] - 1, r);
+        ans += r - i + 1;
+    }
+    cout << ans << endl;
+    return 0;
+}
+~~~
