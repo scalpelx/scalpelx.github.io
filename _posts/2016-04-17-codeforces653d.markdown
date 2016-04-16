@@ -1,0 +1,157 @@
+---
+layout:     post
+title:      "Codeforces 653D Delivery Bears(二分搜索+网络流)"
+subtitle:   "Binary search & Maximum Flow"
+description: "Codeforces 653D Delivery Bears Binary search Maximum Flow"
+date:       2016-04-17 00:00:01
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- Two Pointers
+- Codeforces
+
+---
+[题目链接](http://codeforces.com/problemset/problem/653/D)  
+**题意**：  
+有n个节点m条边的有向图，每条边有权重ci，有x只熊背着货物从节点1送到节点n，每个熊背负的重量相等，每条边所经过的货物重量之和不能超过它的权重，问最多运送多少货物。  
+**思路**：  
+二分每只熊背负的重量，每条边的流量可以转化为它的权重除以每只熊背负的重量（为了防止溢出，可每次取其与x的较小值），判断最大流是否为x，是的话继续增加熊背负的重量，重新建图跑最大流。
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <iomanip>
+
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("nput.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+const int MAXN = 55;
+const int MAXM = 1010;
+struct Edge 
+{
+    int to, next, cap, flow;
+} edge[MAXM]; 
+int tol;
+int head[MAXN];
+int gap[MAXN], dep[MAXN], pre[MAXN], cur[MAXN];
+void init() 
+{
+    tol = 0;
+    memset(head, -1, sizeof(head));
+}
+int id[MAXM];
+void addedge(int u, int v, int w, int rw = 0) 
+{
+    edge[tol].to = v; 
+    edge[tol].cap = w; 
+    edge[tol].next = head[u];
+    edge[tol].flow = 0; 
+    head[u] = tol++;
+    edge[tol].to = u; 
+    edge[tol].cap = rw; 
+    edge[tol].next = head[v];
+    edge[tol].flow = 0; 
+    head[v] = tol++;
+}
+int sap(int start, int end, int N) 
+{
+    memset(gap, 0, sizeof(gap));
+    memset(dep, 0, sizeof(dep));
+    memcpy(cur, head, sizeof(head));
+    int u = start;
+    pre[u] = -1;
+    gap[0] = N;
+    int ans = 0;
+    while (dep[start] < N) 
+    {
+        if (u == end) 
+        {
+            int Min = INF;
+            for (int i = pre[u]; i != -1; i = pre[edge[i ^ 1].to])
+                if (Min > edge[i].cap - edge[i].flow)
+                    Min = edge[i].cap - edge[i].flow;
+            for (int i = pre[u]; i != -1; i = pre[edge[i ^ 1].to]) 
+            {
+                edge[i].flow += Min;
+                edge[i ^ 1].flow -= Min;
+            }
+            u = start;
+            ans += Min;
+            continue;
+        }
+        bool flag = false;
+        int v;
+        for (int i = cur[u]; i != -1; i = edge[i].next) 
+        {
+            v = edge[i].to;
+            if (edge[i].cap - edge[i].flow && dep[v] + 1 == dep[u]) 
+            {
+                flag = true;
+                cur[u] = pre[v] = i;
+                break;
+            }
+        }
+        if (flag) 
+        {
+            u = v;
+            continue;
+        }
+        int Min = N;
+        for (int i = head[u]; i != -1; i = edge[i].next)
+            if (edge[i].cap - edge[i].flow && dep[edge[i].to] < Min) 
+            {
+                Min = dep[edge[i].to];
+                cur[u] = i;
+            }
+        gap[dep[u]]--;
+        if (!gap[dep[u]])
+            return ans;
+        dep[u] = Min + 1;
+        gap[dep[u]]++;
+        if (u != start) 
+            u = edge[pre[u] ^ 1].to;
+    }
+    return ans;
+}
+int n, m, x, a[500], b[500], c[500];
+bool check(double carry)
+{
+    init();
+    for (int i = 0; i < m; ++i)
+        addedge(a[i], b[i], min(static_cast<double>(x), c[i] / carry));
+    addedge(0, 1, x);
+    addedge(n, n + 1, x);
+    if (sap(0, n + 1, n + 2) == x)
+        return true;
+    return false;
+}
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    cin >> n >> m >> x;
+    for (int i = 0; i < m; ++i)
+        cin >> a[i] >> b[i] >> c[i];
+    double ans, l = 0, r = 5e8;
+    for (int i = 0; i < 65; ++i)
+    {
+        double mid = (l + r) / 2;
+        if (check(mid))
+        {
+            l = mid;
+            ans = mid;
+        }
+        else
+            r = mid;
+    }
+    cout << fixed << setprecision(6) << ans * x << endl;
+    return 0;
+}
+~~~
