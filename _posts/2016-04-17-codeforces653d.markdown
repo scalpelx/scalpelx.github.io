@@ -3,7 +3,7 @@ layout:     post
 title:      "Codeforces 653D Delivery Bears(二分搜索+网络流)"
 subtitle:   "Binary search & Maximum Flow"
 description: "Codeforces 653D Delivery Bears Binary search Maximum Flow"
-date:       2016-04-17 00:00:01
+date:       2016-04-17 08:00:01
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
