@@ -46,7 +46,7 @@ f(rx); // T's and param's types are still both int
 
 注意：只有传递的方式是by-value时，才可以忽略const和volatile。  
 
-##第二种ParamType是指针或者引用，但不是Universal  Reference：##
+####  第二种ParamType是指针或者引用，但不是Universal  Reference： ####
 *这里先说一下什么是Universal Reference，C++11新增了右值引用，但不是所有的诸如Type&&这样形式的都是右值引用，当发生类型推断时，有时意味着rvalue reference，有时意味着lvalue reference，对于这种非常灵活的引用，Scott Meyers把它称之为Universal Reference，我也比较喜欢这种叫法。这种情况仅仅发生在type reduction中，最终类型取决于初始化的值类型。*  
 回归正传，当expr是引用时，忽略引用，然后通过expr的类型与ParamType进行模式匹配，从而推断T。  
 
@@ -91,7 +91,7 @@ f(&x); // T is int, param's type is int*
 f(px); // T is const int, param's type is const int*
 ~~~
 
-##第三种ParamType是Universal Reference
+#### 第三种ParamType是Universal Reference ####
 
 如果expr是一个左值，则T和ParamType都被推断为左值引用（注意，这是把T推断为引用的唯一一种情况），如果expr是一个右值，可以参照上一个规则。  
 
