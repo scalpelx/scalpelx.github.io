@@ -22,7 +22,7 @@ f(expr); // 调用f
 ~~~
 
 编译器会根据expr的类型来推断ParamType和T的类型，这两者通常是不同的，ParamType会有一些修饰符，比如const、reference等。
-##首先介绍第一种也是最简单的一种情况，ParamType既不是指针也不是引用：
+##首先介绍第一种也是最简单的一种情况，ParamType既不是指针也不是引用：##
 
 ~~~cpp
 template<typename T>
