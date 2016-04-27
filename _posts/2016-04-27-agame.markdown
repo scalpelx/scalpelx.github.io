@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "USACO 3.3.5 A Game(动态规划)"
+title:      "A Game(动态规划)"
 subtitle:   "Dynamic Programming"
 description: "USACO 3.3.5 A Game 动态规划 Dynamic programming"
 date:       2016-04-27 01:00:00
@@ -9,13 +9,12 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 题解
 - Dynamic Programming
-- USACO
 
 --- 
 **题意**：  
 两个人轮流从数列的两头取数，每个人每次取的数加到他的得分中，求在采取最优策略的情况下各自的得分。  
 **思路**：  
-设`psum[i]`为数列num的前缀和，即`num[1]`到`num[i]`的和，`ans[i][j]`为先手玩家在数列`num[i]`至`num[j]`中可以取得的最大值，因为各自采取最优策略，所以其最大值一定是取走最左边的`num[i]`或最右边的`num[j]`后，剩下的数列中，使后手玩家可以取的`ans[i + 1][j]`或`ans[i][j - 1]`最小，要逆推，i从n递减。
+设`sum[i]`为数列num的前缀和，即`num[1]`到`num[i]`的和，`ans[i][j]`为先手玩家在数列`num[i]`至`num[j]`中可以取得的最大值，因为各自采取最优策略，所以其最大值一定是取走最左边的`num[i]`或最右边的`num[j]`后，剩下的数列中，使后手玩家可以取的`ans[i + 1][j]`或`ans[i][j - 1]`最小，要逆推，i从n递减。
 
 ~~~cpp
 #include <iostream>
@@ -38,18 +37,18 @@ int main()
     int n;
     while(cin >> n)
     {
-        int num[MAXN], psum[MAXN] = {0};
+        int num[MAXN], sum[MAXN] = {0};
         int ans[MAXN][MAXN] = {0};
         for (int i = 1; i <= n; ++i)
         {
             cin >> num[i];
-            psum[i] = psum[i - 1] + num[i];
+            sum[i] = sum[i - 1] + num[i];
             ans[i][i] = num[i];
         }
         for (int i = n; i >= 1; --i)
             for (int j = i + 1; j <= n; ++j)
-                ans[i][j] = psum[j] - psum[i - 1] - min(ans[i + 1][j], ans[i][j - 1]);
-        cout << ans[1][n] << " " << psum[n] - ans[1][n] << endl;
+                ans[i][j] = sum[j] - sum[i - 1] - min(ans[i + 1][j], ans[i][j - 1]);
+        cout << ans[1][n] << " " << sum[n] - ans[1][n] << endl;
     }
     return 0;
 }
