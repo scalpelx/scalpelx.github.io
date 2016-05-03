@@ -24,12 +24,13 @@ tags:
 using namespace std;
 
 const int INF = 0x3f3f3f3f;
+const int N = 300;
 
 #define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
 #define FILEREAD freopen("input.txt", "r", stdin);
 
-int G[300][300], lowcost[300], cost[300];
-bool used[300];
+int G[N][N], lowcost[N], cost[N];
+bool used[N];
 
 int prim(int vcount, int minv)
 {
