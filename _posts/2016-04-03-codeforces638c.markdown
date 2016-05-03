@@ -70,7 +70,7 @@ int main()
     }
     dfs(1, 0, 0);
     cout << k << endl;
-    for(int i = 1; i <= k; ++i)
+    for (int i = 1; i <= k; ++i)
     {
         cout << ans[i].size() << " ";
         for(int d : ans[i])
