@@ -1,0 +1,90 @@
+---
+layout:     post
+title:      "C++ STL map在记录点对方面的妙用"
+subtitle:   "Codeforces 650A & 660D"
+description: "C++ STL map Codeforces 650A 660D"
+date:       2016-05-03 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- C++
+- STL
+- Codeforces
+
+---
+[题目链接](http://codeforces.com/problemset/problem/650/A)  
+**题意**：  
+给出n个点的坐标(x, y)，求出曼哈顿距离 $\left|x_i-x_j\right|+\left|y_i-y_j\right|$ 和欧几里德距离 $\sqrt{(x_i-x_j)^2+(y_i-y_j)^2} 相等的点对有多少。    
+**思路**：  
+两边都平方并移项化简可得当$x_i-x_j=0$或$y_i-y_j=0$时，两种距离相等。所以可以统计出有多少个点对它们的横坐标或者纵坐标相等，利用map可以非常方便地统计出来，注意去重。
+
+~~~cpp
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+#define FIO ios::sync_with_stdio(false); cin.tie(nullptr);
+const int INF = 0x3f3f3f3f;
+
+map<int, int> x, y;
+map<pair<int, int>, int> same;
+
+int main() 
+{
+    FIO
+    int n;
+    cin >> n;
+    long long ans = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        int xi, yi;
+        cin >> xi >> yi;
+        ans += x[xi] + y[yi];
+        ans -= same[{xi, yi}];
+        ++x[xi];
+        ++y[yi];
+        ++same[{xi, yi}];
+    }
+    cout << ans << '\n';
+    return 0;
+}
+~~~
+
+[题目链接](http://codeforces.com/problemset/problem/660/D)  
+**题意**：  
+给出n个点，问可以组成多少个平行四边形。    
+**思路**：  
+可以先求出任意两点构成的对角线的中点，每一对相等的中点便可以确定一个平行四边形。
+
+~~~cpp
+#include <iostream>
+#include <cstdio>
+#include <map>
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("/home/scalpel/Code/input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+
+map<pair<int, int>, int> p;
+
+int main()
+{
+    FIO
+    int n;
+    cin >> n;
+    int x[2000], y[2000];
+    for (int i = 0; i < n; ++i)
+        cin >> x[i] >> y[i];
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < i; ++j)
+            ++p[{x[i] + x[j], y[i] + y[j]}];
+    int ans = 0;
+    for (const auto & l : p)
+        ans += l.second * (l.second - 1) / 2;
+    cout << ans << endl;
+}
+~~~
+
