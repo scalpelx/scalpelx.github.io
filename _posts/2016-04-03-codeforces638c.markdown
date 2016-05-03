@@ -29,9 +29,10 @@ using namespace std;
 #define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
 #define FILEREAD freopen("input.txt", "r", stdin);
 const int INF = 0x3f3f3f3f;
+const int N = 200001;
 
-vector<pair<int, int>> v[200001];
-vector<int> ans[200000];
+vector<pair<int, int>> v[N];
+vector<int> ans[N];
 int k = 0;
 
 void dfs(int curv, int prev, int curtime)
