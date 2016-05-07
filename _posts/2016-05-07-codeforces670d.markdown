@@ -1,0 +1,74 @@
+---
+layout:     post
+title:      "Codeforces 670D1&2(二分)"
+subtitle:   "Binary Search"
+description: "Codeforces 670D1&D2"
+date:       2016-05-03 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- Binary Search
+- Codeforces
+
+---
+[题目链接](http://codeforces.com/problemset/problem/670/D1)  
+[题目链接](http://codeforces.com/problemset/problem/670/D2)  
+**题意**：  
+为了制作一种饼干需要n种原料，每种原料需要$$a_i$$克才能制作一个饼干，现在每种原料有$$b_i$$克，并且还有k克魔法粉，每克可以变成一克任意的一种原料，问最多可以制作多少饼干  
+**思路**：  
+设二分可以制作的饼干数量mid，如果$$k\tg \sum_{i=1}^{n}a_i*mid-b_i(a_i*mid\tg b_i)$$则可继续增加数量，否则减少。  
+
+~~~cpp
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+const int N = 100000;
+long long a[N], b[N];
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO    
+    long long n, k;
+    cin >> n >> k;
+    for (int i = 0; i < n; ++i)
+        cin >> a[i];
+    for (int i = 0; i < n; ++i)
+        cin >> b[i];
+    long long ans = 0, l = 0, r = 2e9;
+    while (l <= r)
+    {
+        long long mid = (l + r ) >> 1, kk = k;
+        bool flag = true;
+        for (int i = 0; i < n; ++i)
+        {
+            if (a[i] * mid > b[i])
+                kk -= a[i] * mid - b[i];
+            if (kk < 0)
+            {
+                r = mid - 1;
+                flag = false;
+                break;
+            }
+        }
+        if (flag)
+        {
+            l = mid + 1;
+            ans = mid;
+        }
+    }
+    cout << ans << endl;
+    return 0;
+}
+
+~~~
+
+
+
