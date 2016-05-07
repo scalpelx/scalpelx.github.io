@@ -12,12 +12,12 @@ tags:
 - Codeforces
 
 ---
-[题目链接](http://codeforces.com/problemset/problem/670/D1)  
-[题目链接](http://codeforces.com/problemset/problem/670/D2)  
+[题目链接D1](http://codeforces.com/problemset/problem/670/D1) 
+[题目链接D2](http://codeforces.com/problemset/problem/670/D2)  
 **题意**：  
 为了制作一种饼干需要n种原料，每种原料需要$$a_i$$克才能制作一个饼干，现在每种原料有$$b_i$$克，并且还有k克魔法粉，每克可以变成一克任意的一种原料，问最多可以制作多少饼干  
 **思路**：  
-设二分可以制作的饼干数量mid，如果$$k> \sum_{i=1}^{n}a_i*mid-b_i  (if a_i*mid>b_i)$$则可继续增加数量，否则减少。  
+设二分可以制作的饼干数量mid，如果$$k> \sum_{i=1}^{n}a_i*mid-b_i  (if  a_i*mid>b_i)$$则可继续增加数量，否则减少。  
 
 ~~~cpp
 #include <iostream>
@@ -27,9 +27,11 @@ using namespace std;
 
 #define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
 #define FILEREAD freopen("input.txt", "r", stdin);
+
 const int INF = 0x3f3f3f3f;
 const int N = 100000;
 long long a[N], b[N];
+
 int main()
 {
 #ifndef ONLINE_JUDGE
