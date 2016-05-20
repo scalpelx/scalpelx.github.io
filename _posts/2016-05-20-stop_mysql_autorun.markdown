@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Ubuntu禁止MySQL服务自动启动"
+title:      "Ubuntu禁止MySQL服务开机自动启动"
 subtitle:   "Stop MySQL service autorun on Ubuntu"
 description: "Ubuntu 禁止 MySQL 自动启动 stop run"
 date:       2016-05-20 01:00:00
