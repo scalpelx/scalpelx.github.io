@@ -44,7 +44,7 @@ int main()
     FIO
     int n, m;
     cin >> n >> m;
-    for(int i = 0; i < m * 2; i += 2)
+    for(int i{0}; i < m * 2; i += 2)
     {
         int s, e, w;
         cin >> s >> e >> w;
@@ -52,19 +52,19 @@ int main()
         edge[i + 1] = {w, {s, e}};
     }
     sort(E, E + m * 2);
-    int j = 0;
-    for(int i = 0; i < m * 2; i++)
+    int j{0};
+    for(int i{0}; i < m * 2; ++i)
     {
         if(i < 2 * m - 1 && edge[i + 1].first == edge[i].first)
             continue;
-        for(int k = j; k <= i; k++)
+        for(int k{j}; k <= i; ++k)
             tmp[edge[k].second.second] = max(tmp[edge[k].second.second], dp[edge[k].second.first] + 1);
-        for(int k = j; k <= i; k++)
+        for(int k{j}; k <= i; ++k)
             dp[edge[k].second.second] = tmp[edge[k].second.second];
         j = i + 1;
     }
-    int ans = 0;
-    for(int i = 0; i < n; i++)
+    int ans{0};
+    for(int i{0}; i < n; ++i)
         ans = max(ans, dp[i]);
     cout << ans << endl;
     return 0;
