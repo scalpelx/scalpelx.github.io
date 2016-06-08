@@ -1,0 +1,75 @@
+---
+layout:     post
+title:      "51Nod 1274 最长递增路径（动态规划）"
+subtitle:   "Dynamic Programming"
+description: "51Nod 1274 最长递增路径 动态规划 DP"
+date:       2016-06-08 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- Dynamic Programming
+- 51Nod
+
+---
+[题目链接](https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1274)  
+**题意**：  
+一个无向图，可能有自环，有重边，每条边有一个边权。你可以从任何点出发，任何点结束，可以经过同一个点任意次。但是不能经过同一条边2次，并且你走过的路必须满足所有边的权值严格单调递增，求最长能经过多少条边。
+**思路**：  
+无向边可以拆为两个边权相同方向相反的有向边，先对边按照权重从小到大排序，设dp[i]为以点i为终点的最长路，则加上边(i, j)后，dp[j]=max(dp[i]+1, dp[j]),注意边权相同的边，可以开个tmp数组暂时统一处理，等边权相同的边处理完后再更新dp
+       
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+#include <utility>
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+const int N = 50001;
+const int MOD = 1e9 + 7;
+
+pair<int, pair<int, int>>edge[N];
+int dp[N], tmp[N];
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i < m * 2; i += 2)
+    {
+        int s, e, w;
+        cin >> s >> e >> w;
+        edge[i] = {w, {s, e}};
+        edge[i + 1] = {w, {s, e}};
+    }
+    sort(E, E + m * 2);
+    int j = 0;
+    for(int i = 0; i < m * 2; i++)
+    {
+        if(i < 2 * m - 1 && edge[i + 1].first == edge[i].first)
+            continue;
+        for(int k = j; k <= i; k++)
+            tmp[edge[k].second.second] = max(tmp[edge[k].second.second], dp[edge[k].second.first] + 1);
+        for(int k = j; k <= i; k++)
+            dp[edge[k].second.second] = tmp[edge[k].second.second];
+        j = i + 1;
+    }
+    int ans = 0;
+    for(int i = 0; i < n; i++)
+        ans = max(ans, dp[i]);
+    cout << ans << endl;
+    return 0;
+}
+~~~
+
+
+
