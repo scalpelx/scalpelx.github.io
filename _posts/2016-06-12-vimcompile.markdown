@@ -17,9 +17,11 @@ tags:
 ```
 sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev mercurial
 ```
+
 二、下载最新版Vim
 ===
 [下载链接](https://github.com/vim/vim/releases)
+
 三、编译安装Vim
 ===
 解压下载的源码，并切换到当前目录，可通过以下命令查看支持的编译选项：  
@@ -39,6 +41,7 @@ sudo make install
 ```
 vim --version
 ```
+
 四、卸载
 ===
 ```
