@@ -25,19 +25,23 @@ sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev liba
 三、编译安装Vim
 ===
 解压下载的源码，并切换到当前目录，可通过以下命令查看支持的编译选项：  
+
 ```
 ./configure --help
 ```
 我用的编译选项：  
+
 ```
 ./configure --with-features=huge --enable-rubyinterp=yes --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --enable-python3interp=yes --with-python3-config-dir=usr/lib/python3.5/config-3.5m-x86_64-linux-gnu --enable-perlinterp=yes --enable-gui=auto --enable-cscope --enable-luainterp=yes --enable-perlinterp=yes --enable-xim --enable-multibyte --prefix=/usr
 ```
 安装：  
+
 ```
 sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74
 sudo make install
 ```
 查看可使用的功能：  
+
 ```
 vim --version
 ```
