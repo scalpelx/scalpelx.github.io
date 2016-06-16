@@ -80,10 +80,14 @@ friends: [
   },
   {
     title: "CodeMIRACLE's Blog",
-    href: "http://www.cnblogs.com/CodeMIRACLE"
+    href: "http://system128.com"
   },
   {
     title: "SHIELD-SKY's Blog",
     href: "http://shield-sky.github.io"
+  },
+  {
+    title: "Phase's Blog",
+    href: "http://arcphase20.com"
   },
 ]
