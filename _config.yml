@@ -90,4 +90,8 @@ friends: [
     title: "Phase's Blog",
     href: "http://arcphase20.com"
   },
+  {
+    title: "BipedalBit's Blog",
+    href: "blog.bipedalbit.net"
+  },
 ]
