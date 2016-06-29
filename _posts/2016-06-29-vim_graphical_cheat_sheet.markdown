@@ -13,6 +13,6 @@ tags:
 
 ---
 偶然在网上发现这个图片，按照键位介绍了Vim的相关操作，实在是太强大了。
-![](img/post/vim_graphical_cheat_sheet.gif)
+![](img/post/vim-cheat-sheet.gif)
 
 
