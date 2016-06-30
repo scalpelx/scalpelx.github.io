@@ -11,13 +11,11 @@ tags:
 - 编程开发
 - Linux
 ---
-基础
----
+### 基础
 *C++ Primer*  
 *The C++ Programming Language*  
 
-进阶  
----
+### 进阶
 *The C++ Standard Library*  
 *Effective Modern C++*  
 *More Effective C++*  
@@ -26,8 +24,7 @@ tags:
 *Accelerated C++*  
 *Effective STL*  
 
-Linux
----
+### Linux
 《鸟哥的Linux私房菜》  
 *Advanced Programming in the UNIX Environment*  
 *TCP/IP Illustrated*  
@@ -37,8 +34,7 @@ Linux
 *Linux Command Line and Shell Scripting Bible*  
 *Linux Kernel Development*  
 
-软件工程  
----
+### 软件工程
 *Man-Month Mythical*  
 *Code Complete*  
 *Clean Code*  
@@ -46,8 +42,7 @@ Linux
 *Coders at Work*  
 *Refactoring Improving the Design of Existing Code*  
 
-其他
----
+### 其他
 *Introduction to Algorithms*  
 *Programming Pearls*  
 *Database Management Systems*  
