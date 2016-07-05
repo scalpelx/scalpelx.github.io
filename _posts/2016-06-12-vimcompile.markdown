@@ -12,18 +12,16 @@ tags:
 - 编程开发
 
 ---
-一、安装编译所需的工具和库
-===
+
+### 一、安装编译所需的工具和库
 ~~~
 sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev mercurial
 ~~~
 
-二、下载最新版Vim
-===
+### 二、下载最新版Vim
 [下载链接](https://github.com/vim/vim/releases)
 
-三、编译安装Vim
-===
+### 三、编译安装Vim
 解压下载的源码，并切换到当前目录，可通过以下命令查看支持的编译选项：  
 
 ~~~
@@ -46,8 +44,7 @@ sudo make install
 vim --version
 ~~~
 
-四、卸载
-===
+### 四、卸载
 ~~~
 sudo make uninstall
 ~~~
