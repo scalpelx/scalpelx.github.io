@@ -16,5 +16,8 @@ tags:
 以及`sudo update-rc.d -f mysql remove`  
 都不管用，好像对于15.04之后的版本都失效了。后来终于搜到了一个[解决方法](http://askubuntu.com/a/656474)：  
 `sudo systemctl disable mysql`  
-手动启动SQL服务：`service mysql start`  
-取消禁用：`sudo systemctl enable mysql` `sudo systemctl start mysql`
+手动启动SQL服务：  
+`service mysql start`  
+取消禁用：  
+`sudo systemctl enable mysql`  
+`sudo systemctl start mysql`
