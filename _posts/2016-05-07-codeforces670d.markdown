@@ -15,7 +15,7 @@ tags:
 [D1题目链接](http://codeforces.com/problemset/problem/670/D1) 
 [D2题目链接](http://codeforces.com/problemset/problem/670/D2)  
 
-##题意：  
+## 题意：  
 为了制作一种饼干需要n种原料，每种原料需要$$a_i$$克才能制作一个饼干，现在每种原料有$$b_i$$克，并且还有k克魔法粉，每克可以变成一克任意的一种原料，问最多可以制作多少饼干。  
 
 ## 思路：  
