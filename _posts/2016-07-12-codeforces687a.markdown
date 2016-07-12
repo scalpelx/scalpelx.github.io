@@ -1,0 +1,83 @@
+---
+layout:     post
+title:      "Codeforces 687A NP-Hard Problem"
+subtitle:   "DFS 染色"
+description: "Codeforces 687A NP-Hard Problem DFS 染色"
+date:       2016-07-12 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- DFS
+- Codeforces
+
+---
+[题目链接](http://codeforces.com/problemset/problem/687/A)
+
+### 题意：
+给出一个无向图G，求其是否可以划分为两个互斥的顶点覆盖集，图G的顶点覆盖是一个顶点集合V，使得G中的每一条边都接触V中的至少一个顶点。  
+
+### 思路：
+二分图，跑一遍DFS对其进行染色即可。
+       
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+const int N = 100010;
+const int MOD = 1e9 + 7;
+
+vector<int> vc[2], g[N];
+int color[N];
+
+bool dfs(int v, int c = 2)
+{
+    color[v] = c;
+    vc[color - 1].push_back(v);
+    for (int u : g[v])
+        if ((!color[u] && dfs(u, 3 - c)) || (mark[u] == c))
+            return true;
+    return false;
+}
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    int n, m;
+    cin >> n >> m;
+    for (int i{0}; i < m; ++i)
+    {
+        int u, v;
+        cin >> u >> v;
+        g[u - 1].push_back(v - 1);
+        g[v - 1].push_back(u - 1);
+    }
+    for (int i{0}; i < n; ++i)
+        if (!color[i] && !g[i].empty() && dfs(i))
+        {
+            cout << -1 << endl;
+            return 0;
+        }
+    for (int i{0}; i < 2; ++i)
+    {
+        cout << vc[i].size() << endl;
+        for (int v : vc[i])
+            cout << v + 1 << ' ';
+        cout << endl;
+    }
+    return 0;
+}
+~~~
+
+
+
