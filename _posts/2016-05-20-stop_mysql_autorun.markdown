@@ -9,6 +9,7 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - Linux
 - 软件使用
+- 数据库
 
 ---
 之前在网上搜到了好多方法，比如注释掉`/etc/init/mysql.conf`的`start on `  
