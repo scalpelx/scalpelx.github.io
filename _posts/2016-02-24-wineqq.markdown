@@ -9,9 +9,11 @@ header-img: "img/home-bg-o.jpg"
 tags:
 - 软件使用
 ---
-准备工作
-===
-**安装wine**  
+**update(2016-07-24):欢迎使用[winetricks-zh](https://github.com/hillwoodroc/winetricks-zh)，安装使用更方便**
+
+## 准备工作
+
+### 安装wine  
 Ubuntu系统可通过以下命令进行安装（其他系统请访问[wine download](https://www.winehq.org/download)）  
 
 ```
@@ -20,22 +22,25 @@ sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
 sudo apt-get install --install-recommends winehq-devel
 ```
-**安装QQ**  
+
+### 安装QQ
 推荐轻聊版[下载地址](http://im.qq.com/lightqq)  
 安装命令（终端切换目录到下载文件夹）  
 
 ```
 wine ./QQ7.9Light.exe
 ```
-安装完成后关闭即可，现在还无法登陆  
-**配置wine**  
+安装完成后关闭即可，现在还无法登陆
+
+### 配置wine
 在终端里输入winecfg，在应用程序标签页中，将Windows版本改为“Windows XP”，增加QQProtect.exe的应用程序设置，将其单独设置为“Windows 10”  
 
-环境配置
-===
-**替换dll**  
-将~/.wine/drive_c/windows/system32/下的iphlpapi.dll [下载地址：Windows 2008 x86](http://www.startos.com/plus/dll.php?os=Windows_2008+32%E4%BD%8D&dll=iphlpapi.dll&ac=down) 和riched20.dll [下载地址：Windows 7 x86](http://www.startos.com/plus/dll.php?os=Windows_7+32%E4%BD%8D&dll=riched20.dll&ac=down) 替换  
-**修改注册表**  
+## 环境配置
+
+### 替换dll
+将~/.wine/drive_c/windows/system32/下的iphlpapi.dll [下载地址：Windows 2008 x86](http://www.startos.com/plus/dll.php?os=Windows_2008+32%E4%BD%8D&dll=iphlpapi.dll&ac=down) 和riched20.dll [下载地址：Windows 7 x86](http://www.startos.com/plus/dll.php?os=Windows_7+32%E4%BD%8D&dll=riched20.dll&ac=down) 替换
+
+### 修改注册表
 将~/.wine/user.reg添加下列信息  
 
 ```
@@ -47,7 +52,8 @@ wine ./QQ7.9Light.exe
 "txplatform.exe"=""
 "txupd.exe"=""
 ```
-**替换字体**（解决部分中文出现方框）  
+
+### 替换字体（解决部分中文出现方框）  
 修改system.reg注册表文件（可修改为自己喜欢的字体，如果有更好看的字体，请分享：)）  
 
 ```
@@ -57,8 +63,7 @@ wine ./QQ7.9Light.exe
 *Update(2016.04.10)*  
 [这里](http://www.burningall.com/2016/01/04/%E8%A7%A3%E5%86%B3wine%E4%B8%8B%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/)有一种新的方法
 
-运行QQ
-==
+## 运行QQ
 终端切换目录到QQ的安装文件夹~/.wine/drive_c/Program Files (x86)/Tencent/QQLite/Bin  
 
 ```
