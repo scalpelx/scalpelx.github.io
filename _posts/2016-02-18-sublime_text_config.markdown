@@ -10,10 +10,9 @@ tags:
 - 编程开发
 - 软件使用
 ---
-分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings  
+分享一下自己的关于Sublime Text 3编写C++和Python代码的一些Package和Settings
 
-Preferences User Settings
----
+### Preferences User Settings
 ```json
 {
     "always_show_minimap_viewport": true,
@@ -33,8 +32,7 @@ Preferences User Settings
 }
 ```
 
-Package
----  
+### Package 
 Anaconda(非常强大的Python插件，支持自动完成、代码检查、查找变量或函数定义及使用等众多功能)  
 Bracket Highlighter(括号匹配高亮)  
 ConvertToUTF8(GBK、UTF-8转换)  
@@ -43,8 +41,8 @@ Console Exec(Python终端运行)
 IMESupport(输入法随行显示)  
 SublimeAStyleFormatter(代码格式化)  
 
-Anaconda Settings
----
+### Anaconda Settings
+
 ```json
 {
     "python_interpreter": "Python安装路径\\python.exe",
@@ -54,8 +52,8 @@ Anaconda Settings
 }
 ```
   
-Bracket Highlighter Settings
----
+### Bracket Highlighter Settings
+
 ```json
 {
     "bracket_styles": {
@@ -213,8 +211,8 @@ Bracket Highlighter Settings
         </dict>
 ```
 
-C++ Build System  
----  
+### C++ Build System  
+ 
 Windows(可自由更改g++选项，可调出命令行，解决了默认不支持输入的问题):  
 
 ```json
@@ -252,8 +250,8 @@ Ubuntu:
 }
 ```
 
-Python Build System
---- 
+### Python Build System
+
 Windows、Linux(解决无法输入问题):
 
 ```json
@@ -265,8 +263,8 @@ Windows、Linux(解决无法输入问题):
 }
 ```
 
-Python.sublime-settings（放在User目录下）  
----
+### Python.sublime-settings（放在User目录下）  
+
 ```json
 {
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
