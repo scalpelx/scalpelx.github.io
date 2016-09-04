@@ -17,19 +17,19 @@ tags:
 ### 配置Clang complete实现自动补全
 
 ```
-let g:clang_library_path="/usr/lib/llvm-3.6/lib"
+let g:clang_library_path="/usr/lib/llvm-3.8/lib"
 let g:clang_auto_select=1 "select first entry in popup menu but don't insert in code
 let g:clang_complete_auto=1 "auto complete after -> . and ::
 let g:clang_complete_copen=1
+set completeopt=menu,longest
 "let g:clang_periodic_quickfix=1
-let g:clang_complete_hl_errors=1 " highlight errors and warnings
+"let g:clang_complete_hl_errors=1 "highlight errors and warnings
 let g:clang_snippets=1
 let g:clang_close_preview=1
 let g:clang_use_library=1
-let g:clang_trailing_placeholder=1 " add trailing placeholder after function
-let g:clang_user_options='-std=c++11 -IIncludePath'
+let g:clang_trailing_placeholder=1 "add trailing placeholder after function
+let g:clang_user_options='-std=c++14 -IIncludePath'
 let g:neocomplcache_enable_at_startup = 1
-set completeopt=menu,longest
 ```
 
 ### taglist配置
@@ -93,12 +93,18 @@ endfunc
 ### 其他配置
 
 ```
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+call vundle#end()
 filetype on
 set shortmess=atI 
 colorscheme  molokai     "配色方案
 set background=dark      
 set fencs=utf-8,gbk       "检测编码，解决中文乱码
-"let g:rehash256 = 1
+let g:rehash256 = 1
+set t_Co=256
 set guifont=Consolas\ 12     "字体与字号
 set tabstop=4                " 设置tab键的宽度
 set shiftwidth=4             " 换行时行间交错使用4个空格
@@ -129,4 +135,23 @@ syntax on                    " 开启文件类型侦测
 filetype indent on           " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on           " 针对不同的文件类型加载对应的插件
 filetype plugin indent on    " 启用自动补全
+set autochdir                " 设置当前打开文件所在目录为工作目录
+```
+
+### gvimrc
+
+```
+set linespace=-3
+set lines=33 columns=90
+:winpos 200 20
+"Toggle Menu and Toolbar
+set guioptions-=m
+set guioptions-=T
+map <silent> <F2> :if &guioptions =~# 'T' <Bar>
+        \set guioptions-=T <Bar>
+        \set guioptions-=m <bar>
+    \else <Bar>
+        \set guioptions+=T <Bar>
+        \set guioptions+=m <Bar>
+    \endif
 ```
