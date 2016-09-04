@@ -30,7 +30,7 @@ sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev liba
 我用的编译选项：  
 
 ~~~
-./configure --with-features=huge --enable-rubyinterp=yes --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --enable-python3interp=yes --with-python3-config-dir=usr/lib/python3.5/config-3.5m-x86_64-linux-gnu --enable-perlinterp=yes --enable-gui=auto --enable-cscope --enable-luainterp=yes --enable-perlinterp=yes --enable-xim --enable-multibyte --prefix=/usr
+./configure --with-features=huge --enable-rubyinterp=yes --enable-luainterp=yes --enable-perlinterp=yes --enable-tclinterp=yes --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --enable-python3interp=yes --with-python3-config-dir=usr/lib/python3.5/config-3.5m-x86_64-linux-gnu --enable-gui=auto --enable-cscope --enable-xim --enable-multibyte --prefix=/usr
 ~~~
 安装：  
 
