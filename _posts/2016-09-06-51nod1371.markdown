@@ -1,14 +1,14 @@
 ---
 layout:     post
 title:      "51Nod 1371 填数字"
-subtitle:   "DP"
+subtitle:   "Dynamic Programming"
 description: "51Nod 1371 填数字 DP 动态规划"
 date:       2016-09-06 01:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
 - 题解
-- DP
+- Dynamic Programming
 - 51Nod
 
 ---
@@ -16,7 +16,7 @@ tags:
 
 ### 题意：
 
-有n(1-200)行格子，第i($$1<=i<=n$$)行有i个格子，每行格子是左对齐。现在要在每一个格子填入一个非负整数，最后使得每一行每一列的和都不超过2。请计算有多少种方案，答案比较大，请输出对100000007取余后的结果。  
+有n(1-200)行格子，第i(1<=i<=n)行有i个格子，每行格子是左对齐。现在要在每一个格子填入一个非负整数，最后使得每一行每一列的和都不超过2。请计算有多少种方案，答案比较大，请输出对100000007取余后的结果。  
 
 ### 思路：
 
