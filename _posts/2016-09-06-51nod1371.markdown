@@ -1,0 +1,81 @@
+---
+layout:     post
+title:      "51Nod 1371 填数字"
+subtitle:   "DP"
+description: "51Nod 1371 填数字 DP 动态规划"
+date:       2016-09-06 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- DP
+- 51Nod
+
+---
+[题目链接](https://www.51nod.com/onlineJudge/questionCode.html#!problemId=1371)
+
+### 题意：
+
+有n(1-200)行格子，第i($$1<=i<=n$$)行有i个格子，每行格子是左对齐。现在要在每一个格子填入一个非负整数，最后使得每一行每一列的和都不超过2。请计算有多少种方案，答案比较大，请输出对100000007取余后的结果。  
+
+### 思路：
+
+枚举每一行，设$$dp[i][j][k]$$，表示到当前行已有i列为0，j列为1，k列为2，为保证合法，当前行只有如下几种填写方案（注意：每一行会比上一行多一列，若不在此填1或者2，则i会加1）：  
+1、填一个2，只能全部填在都为0的列，此时k加1，i和j不变，方案数
+$$C^1_{i+1}$$。  
+2、填两个1，三种方案，全部填在全为0的列，i减1，j加2，k不变，方案数$$C^2_{i+1}$$；分别填在全为0和只有一个1的列，i和j不变，k加1，方案数$$j*(i+1)$$；全部填在只有一个1的列，此时i加1，j减2，k加2，方案数$$C^2_j$$；  
+3、填一个1，其中1的填写又可进一步分为两种方案，填在全为0的列，i和k不变，j加1，方案数$$C^1_{i+1}$$；填在只有一个1的列，i加1，j减1，k加1，方案数$$C^1_j$$；  
+4、全部都填0，i加1，j和k不变，方案数1。  
+
+       
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+const int N = 201;
+const int MOD = 1e8 + 7;
+
+int dp[N][N][N];
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    int n;
+    cin >> n;
+    dp[1][0][0] = dp[0][1][0] = dp[0][0][1] = 1;  //第一行初始化
+    for (int row = 2; row <= n; ++row)  //枚举行
+        for (int i = 0; i < row; ++i)
+            for (int j = 0; j < row - i; ++j){
+                int k = row - i - j - 1;
+                dp[i][j][k + 1] = (dp[i][j][k + 1] + (i + 1LL) * dp[i][j][k]) % MOD;  //填一个2
+                if (i > 0)
+                    dp[i - 1][j + 2][k] = (dp[i - 1][j + 2][k] + i * (i + 1LL) / 2 * dp[i][j][k]) % MOD; //填两个1，全部填在为0的列
+                if (j > 0)
+                    dp[i][j][k + 1] = (dp[i][j][k + 1] + j * (i + 1LL) * dp[i][j][k]) % MOD; //填两个1，分别填在全为0和只有一个1的列
+                if (j > 1)
+                    dp[i + 1][j - 2][k + 2] = (dp[i + 1][j - 2][k + 2] + j * (j - 1LL) / 2 * dp[i][j][k]) % MOD; // 填两个1，全部填在只有一个1的列
+                dp[i][j + 1][k] = (dp[i][j + 1][k] + (i + 1LL) * dp[i][j][k]) % MOD; //填一个1，填在全为0的列
+                dp[i + 1][j - 1][k + 1] = (dp[i + 1][j - 1][k + 1] + (long long)j * dp[i][j][k]) % MOD; //填一个1，填在只有一个1的列
+                dp[i + 1][j][k] = (dp[i + 1][j][k] + dp[i][j][k]) % MOD; //全部都填0
+            }
+    int ans = 0;
+    for (int i = 0; i <= n; ++i)
+        for (int j = 0; j <= n - i; ++j)
+            ans = (ans + dp[i][j][n - i - j]) % MOD;
+    cout << ans << endl;
+    return 0;
+}
+
+~~~
+
+
+
