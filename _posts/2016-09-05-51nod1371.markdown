@@ -3,7 +3,7 @@ layout:     post
 title:      "51Nod 1371 填数字"
 subtitle:   "Dynamic Programming"
 description: "51Nod 1371 填数字 DP 动态规划"
-date:       2016-09-06 01:00:00
+date:       2016-09-05 01:00:00
 author:     "Scalpel"
 header-img: "img/home-bg-o.jpg"
 tags:
