@@ -52,7 +52,7 @@ int main()
     dp[1][0][0] = dp[0][1][0] = dp[0][0][1] = 1;  //第一行初始化
     for (int row = 2; row <= n; ++row)  //枚举行
         for (int i = 0; i < row; ++i)
-            for (int j = 0; j < row - i; ++j){
+            for (int j = 0; j < row - i; ++j) {
                 int k = row - i - j - 1;
                 dp[i][j][k + 1] = (dp[i][j][k + 1] + (i + 1LL) * dp[i][j][k]) % MOD;  //填一个2
                 if (i > 0)
