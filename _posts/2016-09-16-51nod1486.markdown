@@ -1,0 +1,108 @@
+---
+layout:     post
+title:      "51Nod 1486 大大走格子"
+subtitle:   "Dynamic Programming & 逆元 & 容斥"
+description: "51Nod 1486 大大走格子 DP 动态规划 逆元"
+date:       2016-09-16 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- 题解
+- Dynamic Programming
+- 逆元
+- 容斥
+- 51Nod
+
+---
+[题目链接](http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1486)
+
+### 题意：
+有一个h行w列的棋盘，里面有一些格子是不能走的，现在要求从左上角走到右下角的方案数。  
+
+### 思路：
+若没有不能走的格子，则方案数为$$C^{h-1+w-1}_{h-1}$$，对于不能走的点可以用容斥原理减去这些点的方案数，把点根据x坐标以及y坐标排序，$$dp[i]$$表示起点到该点的方案数，则$$dp[i]=C_{cell[i]_x+cell[i]_y-2}^{cell[i]_x-1}-sum_{j=0}^{j<i}dp[j]*C_{cell[i]_x+cell[i]_y-cell[j]_x-cell[j]_y}^{cell[i]_x-cell[j]_x}$$  
+需要用逆元求组合数，逆元求法：可以用扩展欧几里德定理，若a与模p互质，根据费马小定理可得其逆元等于$$a^{p-2}$$，可以快速幂取模求出。  
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+using namespace std;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+#define FILEREAD freopen("input.txt", "r", stdin);
+const int INF = 0x3f3f3f3f;
+const int N = 2001;
+const int MOD = 1e9 + 7;
+
+struct node
+{
+    int x, y;
+}cell[N];
+long long dp[N], fac[N * 100], inv[N * 100];
+bool cmp(const node &a, const node &b)
+{
+    if (a.x == b.x)
+        return a.y < b.y;
+    else
+        return a.x < b.x;
+}
+long long quick_mod(long long a, long long b)
+{
+    long long ans = 1;
+    while (b) {
+        if (b & 1)
+            ans = ans * a % MOD;
+        a = a * a % MOD;
+        b >>= 1;
+    }
+    return ans;
+}
+void getfac()
+{
+    fac[0] = inv[0] = 1;
+    for (int i = 1; i <= 200000; ++i) {
+        fac[i] = fac[i - 1] * i % MOD;
+        inv[i] = quick_mod(fac[i], MOD - 2);
+    }
+}
+long long C(int a, int b)
+{
+    if (a < 0 || b < 0 || a < b)
+        return 0;
+    else if (b == 0 || a == b)
+        return 1;
+    else 
+        return fac[a] * (inv[b] * inv[a - b] % MOD) % MOD;
+}
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+    FILEREAD
+#endif
+    FIO
+    int w, h, n;
+    cin >> h >> w >> n;
+    for (int i = 0; i < n; ++i)
+        cin >> cell[i].x >> cell[i].y;
+    cell[n].x = h;
+    cell[n].y = w;
+    ++n;
+    sort(cell, cell + n, cmp);
+    getfac();
+    for (int i = 0; i < n; ++i) {
+        dp[i] = C(cell[i].x + cell[i].y - 2, cell[i].x - 1);
+        for (int j = 0; j < i; ++j)
+            dp[i] = ((dp[i] - C(cell[i].x + cell[i].y - cell[j].x - cell[j].y, cell[i].x - cell[j].x) * dp[j]) % MOD + MOD) % MOD;
+    }
+    cout << dp[n - 1] << endl;
+    return 0;
+}
+
+~~~
+
+
+
