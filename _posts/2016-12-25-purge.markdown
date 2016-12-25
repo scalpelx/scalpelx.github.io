@@ -10,5 +10,5 @@ tags:
 - C++
 ---
 
-　　在Ubuntu中我们可以用`apt purge PackageName`或者`apt remove PackageName --purge`的方式完全卸载一个软件，可是有时我们忘了用purge，只是单纯的卸载了程序，系统上还保留着配置文件怎么办呢，我们可以用如下命令来清除其配置文件
+　　在Ubuntu中我们可以用`apt purge PackageName`或者`apt remove PackageName --purge`的方式完全卸载一个软件，可是有时我们忘了用purge，只是单纯的卸载了程序，系统上还保留着配置文件怎么办呢，我们可以用如下命令来清除其配置文件  
 　　`dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P`
