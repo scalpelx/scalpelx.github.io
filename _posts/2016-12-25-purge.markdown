@@ -1,0 +1,15 @@
+---
+layout:     post
+title:      "Ubuntu系统清除已卸载软件的配置文件"
+subtitle:   ""
+description: "Ubuntu 清除配置文件"
+date:       2016-12-25 01:00:00
+author:     "Scalpel"
+header-img: "img/home-bg-o.jpg"
+tags:
+- C++
+---
+
+在Ubuntu中我们可以用`apt purge PackageName`或者`apt remove PackageName --purge`的
+方式完全卸载一个软件，可是有时我们忘了用purge，只是单纯的卸载了程序，系统上还保留着配置文件怎么
+办呢，我们可以用如下命令来清除其配置文件`dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P`
