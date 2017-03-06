@@ -16,7 +16,7 @@ sudo add-apt-repository ppa:hzwhuang/ss-qt5
 sudo apt update
 sudo apt install shadowsocks-qt5
 ```
-[配置](https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)   
+[Shadowsocks-Qt5配置](https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)   
 **安装pip**
 ```
 sudo apt install python-pip
