@@ -44,7 +44,7 @@ AUTO_PROXY="file://~/autoproxy.pac"
 sudo apt install proxychains
 ```
 **修改配置**   
-编辑/etc/proxychains.conf文件，将socks4 127.0.0.1 9095（tor代理）修改为socks5 127.0.0.1 1080（shadowsocks代理）   
+编辑/etc/proxychains.conf文件，将`socks4 127.0.0.1 9095`（tor代理）修改为`socks5 127.0.0.1 1080`（shadowsocks代理）   
 **使用**   
 `$ proxychains yourcommand`   
 例如`proxychains wget https://www.google.com -v -O /dev/null`
