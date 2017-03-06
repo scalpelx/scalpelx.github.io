@@ -37,3 +37,13 @@ auto_proxy="file://~/autoproxy.pac"
 AUTO_PROXY="file://~/autoproxy.pac"
 ```
 重启
+### 终端代理
+终端无法通过此种方法走代理，可以安装[proxychains](https://github.com/haad/proxychains)  
+```
+sudo apt install proxychains
+```
+**修改配置**
+编辑/etc/proxychains.conf文件，将socks4 127.0.0.1 9095（tor代理）修改为socks5 127.0.0.1 1080（shadowsocks代理）
+**使用**
+$ proxychains yourcommand  
+例如proxychains wget https://www.google.com -v -O /dev/null
