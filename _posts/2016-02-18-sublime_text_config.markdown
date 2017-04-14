@@ -270,3 +270,23 @@ Windows、Linux(解决无法输入问题):
     "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
 }
 ```
+
+### AStyle Setting
+
+```json
+{
+    "options_default": {
+        "style": "kr",
+        "indent": "spaces",
+        "indent-spaces": 4,
+        "attach-namespaces": false,
+        "attach-classes": false,
+        "indent-switches": true,
+        "indent-namespaces": true,
+        "indent-preproc-block": true,
+        "align-pointer": "name",
+        "align-reference": "name",
+        "break-closing-brackets": true,
+        "close-templates": true,
+    },
+}
