@@ -71,11 +71,7 @@ friends: [
     href: "http://winterfell30.com"
   },
   {
-    title: "Binvec's  Blog",
-    href: "http://binvec.xyz"
-  },
-  {
-    title: "Sevenskey's  365",
+    title: "Sevenskey's 365",
     href: "http://www.sevenskey.xyz"
   },
   {
@@ -101,5 +97,9 @@ friends: [
   {
     title: "SteveDevin's Blog",
     href: "http://blog.idevin.cn"
-  }
+  },
+  {
+    title: "Binvec's Blog",
+    href: "http://binvec.xyz"
+  },
 ]
