@@ -75,10 +75,6 @@ friends: [
     href: "http://www.sevenskey.xyz"
   },
   {
-    title: "Cui Chen's Blog  ",
-    href: "http://cuichen.cc"
-  },
-  {
     title: "Binvec's Blog",
     href: "http://binvec.xyz"
   },
@@ -89,6 +85,10 @@ friends: [
   {
     title: "SHIELD-SKY's Blog",
     href: "http://shield-sky.github.io"
+  },
+  {
+    title: "Cui Chen's Blog",
+    href: "http://cuichen.cc"
   },
   {
     title: "BipedalBit's Blog",
