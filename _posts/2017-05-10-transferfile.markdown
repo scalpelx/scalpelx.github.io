@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "基于TCP/IP的Linux文件传输程序开发记录"
+title:      "基于TCP的Linux文件传输程序开发记录"
 subtitle:   ""
 description: "TCP Linux socket"
 date:       2017-05-10 01:00:00
