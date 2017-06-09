@@ -23,12 +23,14 @@ tags:
 *Ruminations on C++*  
 *Accelerated C++*  
 *Effective STL*  
+*C++ Concurrency in Action*  
+《STL源码剖析》  
 
 ### Linux
 《鸟哥的Linux私房菜》  
 *Advanced Programming in the UNIX Environment*  
-*TCP/IP Illustrated*  
 *Unix Network Programming*  
+*TCP/IP Illustrated*  
 *Beginning Linux Programming*  
 *Understanding the Linux Kernel*  
 *Linux Command Line and Shell Scripting Bible*  
@@ -43,12 +45,9 @@ tags:
 *Refactoring Improving the Design of Existing Code*  
 
 ### 其他
+*Computer Systems: A Programmer's Perspective*  
 *Introduction to Algorithms*  
 *Programming Pearls*  
 *Database Management Systems*  
 《数学之美》  
 《并行程序设计》  
-
-
-
-
