@@ -28,7 +28,9 @@ tags:
     "show_line_endings": true,
     "translate_tabs_to_spaces": true,
     "update_check": false,
-    "word_wrap": "auto"
+    "word_wrap": "auto",
+    "line_padding_top": 0,
+    "line_padding_bottom": 0,
 }
 ```
 
