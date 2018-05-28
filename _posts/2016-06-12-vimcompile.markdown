@@ -35,7 +35,7 @@ sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev liba
 安装：  
 
 ~~~
-sudo make VIMRUNTIMEDIR=/usr/share/vim/vim80
+sudo make VIMRUNTIMEDIR=/usr/share/vim/vim81
 sudo make install
 ~~~
 查看可使用的功能：  
