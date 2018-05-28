@@ -5,7 +5,7 @@ header-img: img/home-bg-o.jpg
 email: scalpelx@outlook.com
 description: "Programming Blog"
 keyword: "C++ Programming ACM Linux"
-url: "http://scalpel.vip"              # your host, for absolute URL
+url: "https://scalpel.vip"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # SNS settings
