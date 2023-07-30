@@ -2,7 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>My sweetheart</title>
-    <audio id="audio" src="Crush - Beautiful.mp3" muted loop></audio>
+    <audio id="audio" src="Crush - Beautiful.mp3"  preload="auto" loop></audio>
     <link type="text/css" rel="stylesheet" href="default.css" tppabs="default.css">
 	<script type="text/javascript" src="jquery.min.js" tppabs="jquery.min.js"></script>
 	<script type="text/javascript" src="jscex.min.js" tppabs="jscex.min.js"></script>
@@ -93,7 +93,7 @@
             var hold = 1;
 
             canvas.click(function(e) {
-                audio.muted = false;
+                audio.play();
                 var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;
