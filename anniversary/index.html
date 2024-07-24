@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>致我最爱的宝贝</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('css/digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			不知不觉间一年过去了<br />
+			这一年间我们经历了许许多多的事情，去过了好多地方，吃过了好多美食<br />
+			留下了太多美好的回忆<br />
+			过去的这一年是我二十八年人生中最美好，最开心，最幸福的一年<br />
+			一切只因你在我的身边<br />
+			你问我想要什么<br />
+			我的答案只有一个：一直有你<br />
+			所以你能实现我的愿望吗<br />
+			过去的一年里我也犯了一些错<br />
+			让你不开心<br />
+			对不起我的宝贝<br />
+			以后说过的话，做过的承诺我都会记得<br />
+			爱你直到永永远远<br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					亲爱的，这是我们在一起的美好时光。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					写尽千山 落笔是你，<br />
+					望尽星辰 美丽是你，<br />
+					书尽泛黄 扉页是你，<br />
+					千山万水 归处是你。<br/>
+					<div class="signature">- 爱你的<a id="signature-name"></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		<a href="#"></a><br />
+	</div>
+</div>
+
+<script type="text/javascript">
+var togetherTime = '2023-07-24 22:29:00'
+$("#signature-name").text('老公')
+$("#together-time").text(togetherTime.split(' ')[0])
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date(togetherTime);
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+
+</body>
+</html>
